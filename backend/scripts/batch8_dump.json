@@ -1,0 +1,2697 @@
+[
+  {
+    "id": 411,
+    "slug": "mbpp-427-convert-a-date-of-yyyy-mm-dd-format-to-dd-mm-yyyy-format-by-using-regex",
+    "title": "Convert a date of yyyy-mm-dd format to dd-mm-yyyy format by using regex",
+    "fn_name": "change_date_format",
+    "starter_py": "def change_date_format(dt):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef change_date_format(dt):\r\n        return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)",
+    "test_cases": [
+      {
+        "input": {
+          "dt": "2026-01-02"
+        },
+        "output": "02-01-2026"
+      },
+      {
+        "input": {
+          "dt": "2020-11-13"
+        },
+        "output": "13-11-2020"
+      },
+      {
+        "input": {
+          "dt": "2021-04-26"
+        },
+        "output": "26-04-2021"
+      }
+    ]
+  },
+  {
+    "id": 412,
+    "slug": "mbpp-428-sort-the-given-array-by-using-shell-sort",
+    "title": "Sort the given array by using shell sort",
+    "fn_name": "shell_sort",
+    "starter_py": "def shell_sort(my_list):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def shell_sort(my_list):\r\n    gap = len(my_list) // 2\r\n    while gap > 0:\r\n        for i in range(gap, len(my_list)):\r\n            current_item = my_list[i]\r\n            j = i\r\n            while j >= gap and my_list[j - gap] > current_item:\r\n                my_list[j] = my_list[j - gap]\r\n                j -= gap\r\n            my_list[j] = current_item\r\n        gap //= 2\r\n\r\n    return my_list",
+    "test_cases": [
+      {
+        "input": {
+          "my_list": [
+            12,
+            23,
+            4,
+            5,
+            3,
+            2,
+            12,
+            81,
+            56,
+            95
+          ]
+        },
+        "output": [
+          2,
+          3,
+          4,
+          5,
+          12,
+          12,
+          23,
+          56,
+          81,
+          95
+        ]
+      },
+      {
+        "input": {
+          "my_list": [
+            24,
+            22,
+            39,
+            34,
+            87,
+            73,
+            68
+          ]
+        },
+        "output": [
+          22,
+          24,
+          34,
+          39,
+          68,
+          73,
+          87
+        ]
+      },
+      {
+        "input": {
+          "my_list": [
+            32,
+            30,
+            16,
+            96,
+            82,
+            83,
+            74
+          ]
+        },
+        "output": [
+          16,
+          30,
+          32,
+          74,
+          82,
+          83,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "id": 413,
+    "slug": "mbpp-430-find-the-directrix-of-a-parabola",
+    "title": "Find the directrix of a parabola",
+    "fn_name": "parabola_directrix",
+    "starter_py": "def parabola_directrix(a, b, c):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def parabola_directrix(a, b, c): \r\n  directrix=((int)(c - ((b * b) + 1) * 4 * a ))\r\n  return directrix",
+    "test_cases": [
+      {
+        "input": {
+          "a": 5,
+          "b": 3,
+          "c": 2
+        },
+        "output": -198
+      },
+      {
+        "input": {
+          "a": 9,
+          "b": 8,
+          "c": 4
+        },
+        "output": -2336
+      },
+      {
+        "input": {
+          "a": 2,
+          "b": 4,
+          "c": 6
+        },
+        "output": -130
+      }
+    ]
+  },
+  {
+    "id": 414,
+    "slug": "mbpp-431-write-a-function-that-takes-two-lists-and-returns-true-if-they-have-at-least-one",
+    "title": "Write a function that takes two lists and returns true if they have at least one",
+    "fn_name": "common_element",
+    "starter_py": "def common_element(list1, list2):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def common_element(list1, list2):\r\n     result = False\r\n     for x in list1:\r\n         for y in list2:\r\n             if x == y:\r\n                 result = True\r\n                 return result",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "list2": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "list2": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "output": null
+      },
+      {
+        "input": {
+          "list1": [
+            "a",
+            "b",
+            "c"
+          ],
+          "list2": [
+            "d",
+            "b",
+            "e"
+          ]
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 415,
+    "slug": "mbpp-432-find-the-median-of-a-trapezium",
+    "title": "Find the median of a trapezium",
+    "fn_name": "median_trapezium",
+    "starter_py": "def median_trapezium(base1, base2, height):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def median_trapezium(base1,base2,height):\r\n median = 0.5 * (base1+ base2)\r\n return median",
+    "test_cases": [
+      {
+        "input": {
+          "base1": 15,
+          "base2": 25,
+          "height": 35
+        },
+        "output": 20
+      },
+      {
+        "input": {
+          "base1": 10,
+          "base2": 20,
+          "height": 30
+        },
+        "output": 15
+      },
+      {
+        "input": {
+          "base1": 6,
+          "base2": 9,
+          "height": 4
+        },
+        "output": 7.5
+      }
+    ]
+  },
+  {
+    "id": 416,
+    "slug": "mbpp-433-check-whether-the-entered-number-is-greater-than-the-elements-of-the-given-array",
+    "title": "Check whether the entered number is greater than the elements of the given array",
+    "fn_name": "check_greater",
+    "starter_py": "def check_greater(arr, number):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def check_greater(arr, number):\r\n  arr.sort()\r\n  if number > arr[-1]:\r\n    return ('Yes, the entered number is greater than those in the array')\r\n  else:\r\n    return ('No, entered number is less than those in the array')",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "number": 4
+        },
+        "output": "No, entered number is less than those in the array"
+      },
+      {
+        "input": {
+          "arr": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "number": 8
+        },
+        "output": "Yes, the entered number is greater than those in the array"
+      },
+      {
+        "input": {
+          "arr": [
+            9,
+            7,
+            4,
+            8,
+            6,
+            1
+          ],
+          "number": 11
+        },
+        "output": "Yes, the entered number is greater than those in the array"
+      }
+    ]
+  },
+  {
+    "id": 417,
+    "slug": "mbpp-434-write-a-function-that-matches-a-string-that-has-an-a-followed-by-one-or-more-b-s",
+    "title": "Write a function that matches a string that has an a followed by one or more b's",
+    "fn_name": "text_match_one",
+    "starter_py": "def text_match_one(text):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef text_match_one(text):\r\n        patterns = 'ab+?'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "test_cases": [
+      {
+        "input": {
+          "text": "ac"
+        },
+        "output": "Not matched!"
+      },
+      {
+        "input": {
+          "text": "dc"
+        },
+        "output": "Not matched!"
+      },
+      {
+        "input": {
+          "text": "abba"
+        },
+        "output": "Found a match!"
+      }
+    ]
+  },
+  {
+    "id": 418,
+    "slug": "mbpp-435-find-the-last-digit-of-a-given-number",
+    "title": "Find the last digit of a given number",
+    "fn_name": "last_Digit",
+    "starter_py": "def last_Digit(n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def last_Digit(n) :\r\n    return (n % 10)",
+    "test_cases": [
+      {
+        "input": {
+          "n": 123
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "n": 25
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "n": 30
+        },
+        "output": 0
+      }
+    ]
+  },
+  {
+    "id": 419,
+    "slug": "mbpp-436-print-negative-numbers-in-a-list",
+    "title": "Print negative numbers in a list",
+    "fn_name": "neg_nos",
+    "starter_py": "def neg_nos(list1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def neg_nos(list1):\r\n  for num in list1: \r\n    if num < 0: \r\n       return num",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            -1,
+            4,
+            5,
+            -6
+          ]
+        },
+        "output": -1
+      },
+      {
+        "input": {
+          "list1": [
+            -1,
+            -2,
+            3,
+            4
+          ]
+        },
+        "output": -1
+      },
+      {
+        "input": {
+          "list1": [
+            -7,
+            -6,
+            8,
+            9
+          ]
+        },
+        "output": -7
+      }
+    ]
+  },
+  {
+    "id": 420,
+    "slug": "mbpp-437-remove-odd-characters-in-a-string",
+    "title": "Remove odd characters in a string",
+    "fn_name": "remove_odd",
+    "starter_py": "def remove_odd(str1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def remove_odd(str1):\r\n str2 = ''\r\n for i in range(1, len(str1) + 1):\r\n    if(i % 2 == 0):\r\n        str2 = str2 + str1[i - 1]\r\n return str2",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "python"
+        },
+        "output": "yhn"
+      },
+      {
+        "input": {
+          "str1": "program"
+        },
+        "output": "rga"
+      },
+      {
+        "input": {
+          "str1": "language"
+        },
+        "output": "agae"
+      }
+    ]
+  },
+  {
+    "id": 421,
+    "slug": "mbpp-438-count-bidirectional-tuple-pairs",
+    "title": "Count bidirectional tuple pairs",
+    "fn_name": "count_bidirectional",
+    "starter_py": "def count_bidirectional(test_list):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def count_bidirectional(test_list):\r\n  res = 0\r\n  for idx in range(0, len(test_list)):\r\n    for iidx in range(idx + 1, len(test_list)):\r\n      if test_list[iidx][0] == test_list[idx][1] and test_list[idx][1] == test_list[iidx][0]:\r\n        res += 1\r\n  return (str(res))",
+    "test_cases": [
+      {
+        "input": {
+          "test_list": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        "output": "3"
+      },
+      {
+        "input": {
+          "test_list": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        "output": "2"
+      },
+      {
+        "input": {
+          "test_list": [
+            [
+              5,
+              6
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        "output": "4"
+      }
+    ]
+  },
+  {
+    "id": 422,
+    "slug": "mbpp-439-convert-a-list-of-multiple-integers-into-a-single-integer",
+    "title": "Convert a list of multiple integers into a single integer",
+    "fn_name": "multiple_to_single",
+    "starter_py": "def multiple_to_single(L):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def multiple_to_single(L):\r\n  x = int(\"\".join(map(str, L)))\r\n  return x",
+    "test_cases": [
+      {
+        "input": {
+          "L": [
+            11,
+            33,
+            50
+          ]
+        },
+        "output": 113350
+      },
+      {
+        "input": {
+          "L": [
+            -1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "output": -123456
+      },
+      {
+        "input": {
+          "L": [
+            10,
+            15,
+            20,
+            25
+          ]
+        },
+        "output": 10152025
+      }
+    ]
+  },
+  {
+    "id": 423,
+    "slug": "mbpp-441-find-the-surface-area-of-a-cube",
+    "title": "Find the surface area of a cube",
+    "fn_name": "surfacearea_cube",
+    "starter_py": "def surfacearea_cube(l):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def surfacearea_cube(l):\r\n  surfacearea= 6*l*l\r\n  return surfacearea",
+    "test_cases": [
+      {
+        "input": {
+          "l": 5
+        },
+        "output": 150
+      },
+      {
+        "input": {
+          "l": 3
+        },
+        "output": 54
+      },
+      {
+        "input": {
+          "l": 10
+        },
+        "output": 600
+      }
+    ]
+  },
+  {
+    "id": 424,
+    "slug": "mbpp-442-find-the-ration-of-positive-numbers-in-an-array-of-integers",
+    "title": "Find the ration of positive numbers in an array of integers",
+    "fn_name": "positive_count",
+    "starter_py": "def positive_count(nums):\n    # Write your solution here\n    pass\n",
+    "ref_py": "from array import array\r\ndef positive_count(nums):\r\n    n = len(nums)\r\n    n1 = 0\r\n    for x in nums:\r\n        if x > 0:\r\n            n1 += 1\r\n        else:\r\n          None\r\n    return round(n1/n,2)",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            0,
+            1,
+            2,
+            -1,
+            -5,
+            6,
+            0,
+            -3,
+            -2,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        "output": 0.54
+      },
+      {
+        "input": {
+          "nums": [
+            2,
+            1,
+            2,
+            -1,
+            -5,
+            6,
+            4,
+            -3,
+            -2,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        "output": 0.69
+      },
+      {
+        "input": {
+          "nums": [
+            2,
+            4,
+            -6,
+            -9,
+            11,
+            -12,
+            14,
+            -5,
+            17
+          ]
+        },
+        "output": 0.56
+      }
+    ]
+  },
+  {
+    "id": 425,
+    "slug": "mbpp-443-find-the-largest-negative-number-from-the-given-list",
+    "title": "Find the largest negative number from the given list",
+    "fn_name": "largest_neg",
+    "starter_py": "def largest_neg(list1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def largest_neg(list1): \r\n    max = list1[0] \r\n    for x in list1: \r\n        if x < max : \r\n             max = x  \r\n    return max",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            -4,
+            -6
+          ]
+        },
+        "output": -6
+      },
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            -8,
+            -9
+          ]
+        },
+        "output": -9
+      },
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            4,
+            -1
+          ]
+        },
+        "output": -1
+      }
+    ]
+  },
+  {
+    "id": 426,
+    "slug": "mbpp-444-trim-each-tuple-by-k-in-the-given-tuple-list",
+    "title": "Trim each tuple by k in the given tuple list",
+    "fn_name": "trim_tuple",
+    "starter_py": "def trim_tuple(test_list, K):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def trim_tuple(test_list, K):\r\n  res = []\r\n  for ele in test_list:\r\n    N = len(ele)\r\n    res.append(tuple(list(ele)[K: N - K]))\r\n  return (str(res))",
+    "test_cases": [
+      {
+        "input": {
+          "test_list": [
+            [
+              5,
+              3,
+              2,
+              1,
+              4
+            ],
+            [
+              3,
+              4,
+              9,
+              2,
+              1
+            ],
+            [
+              9,
+              1,
+              2,
+              3,
+              5
+            ],
+            [
+              4,
+              8,
+              2,
+              1,
+              7
+            ]
+          ],
+          "K": 2
+        },
+        "output": "[(2,), (9,), (2,), (2,)]"
+      },
+      {
+        "input": {
+          "test_list": [
+            [
+              5,
+              3,
+              2,
+              1,
+              4
+            ],
+            [
+              3,
+              4,
+              9,
+              2,
+              1
+            ],
+            [
+              9,
+              1,
+              2,
+              3,
+              5
+            ],
+            [
+              4,
+              8,
+              2,
+              1,
+              7
+            ]
+          ],
+          "K": 1
+        },
+        "output": "[(3, 2, 1), (4, 9, 2), (1, 2, 3), (8, 2, 1)]"
+      },
+      {
+        "input": {
+          "test_list": [
+            [
+              7,
+              8,
+              4,
+              9
+            ],
+            [
+              11,
+              8,
+              12,
+              4
+            ],
+            [
+              4,
+              1,
+              7,
+              8
+            ],
+            [
+              3,
+              6,
+              9,
+              7
+            ]
+          ],
+          "K": 1
+        },
+        "output": "[(8, 4), (8, 12), (1, 7), (6, 9)]"
+      }
+    ]
+  },
+  {
+    "id": 427,
+    "slug": "mbpp-446-count-the-occurence-of-all-elements-of-list-in-a-tuple",
+    "title": "Count the occurence of all elements of list in a tuple",
+    "fn_name": "count_Occurrence",
+    "starter_py": "def count_Occurrence(tup, lst):\n    # Write your solution here\n    pass\n",
+    "ref_py": "from collections import Counter \r\ndef count_Occurrence(tup, lst): \r\n    count = 0\r\n    for item in tup: \r\n        if item in lst: \r\n            count+= 1 \r\n    return count",
+    "test_cases": [
+      {
+        "input": {
+          "tup": [
+            "a",
+            "a",
+            "c",
+            "b",
+            "d"
+          ],
+          "lst": [
+            "a",
+            "b"
+          ]
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "tup": [
+            1,
+            2,
+            3,
+            1,
+            4,
+            6,
+            7,
+            1,
+            4
+          ],
+          "lst": [
+            1,
+            4,
+            7
+          ]
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "tup": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "lst": [
+            1,
+            2
+          ]
+        },
+        "output": 2
+      }
+    ]
+  },
+  {
+    "id": 428,
+    "slug": "mbpp-447-find-cubes-of-individual-elements-in-a-list-using-lambda-function",
+    "title": "Find cubes of individual elements in a list using lambda function",
+    "fn_name": "cube_nums",
+    "starter_py": "def cube_nums(nums):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def cube_nums(nums):\r\n cube_nums = list(map(lambda x: x ** 3, nums))\r\n return cube_nums",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "output": [
+          1,
+          8,
+          27,
+          64,
+          125,
+          216,
+          343,
+          512,
+          729,
+          1000
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            10,
+            20,
+            30
+          ]
+        },
+        "output": [
+          1000,
+          8000,
+          27000
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            12,
+            15
+          ]
+        },
+        "output": [
+          1728,
+          3375
+        ]
+      }
+    ]
+  },
+  {
+    "id": 429,
+    "slug": "mbpp-448-calculate-the-sum-of-perrin-numbers",
+    "title": "Calculate the sum of perrin numbers",
+    "fn_name": "cal_sum",
+    "starter_py": "def cal_sum(n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def cal_sum(n): \r\n\ta = 3\r\n\tb = 0\r\n\tc = 2\r\n\tif (n == 0): \r\n\t\treturn 3\r\n\tif (n == 1): \r\n\t\treturn 3\r\n\tif (n == 2): \r\n\t\treturn 5\r\n\tsum = 5\r\n\twhile (n > 2): \r\n\t\td = a + b \r\n\t\tsum = sum + d \r\n\t\ta = b \r\n\t\tb = c \r\n\t\tc = d \r\n\t\tn = n-1\r\n\treturn sum",
+    "test_cases": [
+      {
+        "input": {
+          "n": 9
+        },
+        "output": 49
+      },
+      {
+        "input": {
+          "n": 10
+        },
+        "output": 66
+      },
+      {
+        "input": {
+          "n": 11
+        },
+        "output": 88
+      }
+    ]
+  },
+  {
+    "id": 430,
+    "slug": "mbpp-449-check-whether-the-triangle-is-valid-or-not-if-3-points-are-given",
+    "title": "Check whether the triangle is valid or not if 3 points are given",
+    "fn_name": "check_Triangle",
+    "starter_py": "def check_Triangle(x1, y1, x2, y2, x3, y3):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def check_Triangle(x1,y1,x2,y2,x3,y3): \r\n    a = (x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2))   \r\n    if a == 0: \r\n        return ('No') \r\n    else: \r\n        return ('Yes')",
+    "test_cases": [
+      {
+        "input": {
+          "x1": 1,
+          "y1": 5,
+          "x2": 2,
+          "y2": 5,
+          "x3": 4,
+          "y3": 6
+        },
+        "output": "Yes"
+      },
+      {
+        "input": {
+          "x1": 1,
+          "y1": 1,
+          "x2": 1,
+          "y2": 4,
+          "x3": 1,
+          "y3": 5
+        },
+        "output": "No"
+      },
+      {
+        "input": {
+          "x1": 1,
+          "y1": 1,
+          "x2": 1,
+          "y2": 1,
+          "x3": 1,
+          "y3": 1
+        },
+        "output": "No"
+      }
+    ]
+  },
+  {
+    "id": 431,
+    "slug": "mbpp-450-extract-specified-size-of-strings-from-a-give-list-of-string-values",
+    "title": "Extract specified size of strings from a give list of string values",
+    "fn_name": "extract_string",
+    "starter_py": "def extract_string(str, l):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def extract_string(str, l):\r\n    result = [e for e in str if len(e) == l] \r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "str": [
+            "Python",
+            "list",
+            "exercises",
+            "practice",
+            "solution"
+          ],
+          "l": 8
+        },
+        "output": [
+          "practice",
+          "solution"
+        ]
+      },
+      {
+        "input": {
+          "str": [
+            "Python",
+            "list",
+            "exercises",
+            "practice",
+            "solution"
+          ],
+          "l": 6
+        },
+        "output": [
+          "Python"
+        ]
+      },
+      {
+        "input": {
+          "str": [
+            "Python",
+            "list",
+            "exercises",
+            "practice",
+            "solution"
+          ],
+          "l": 9
+        },
+        "output": [
+          "exercises"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 432,
+    "slug": "mbpp-451-remove-all-whitespaces-from-the-given-string-using-regex",
+    "title": "Remove all whitespaces from the given string using regex",
+    "fn_name": "remove_whitespaces",
+    "starter_py": "def remove_whitespaces(text1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef remove_whitespaces(text1):\r\n  return (re.sub(r'\\s+', '',text1))",
+    "test_cases": [
+      {
+        "input": {
+          "text1": " Google    Flutter "
+        },
+        "output": "GoogleFlutter"
+      },
+      {
+        "input": {
+          "text1": " Google    Dart "
+        },
+        "output": "GoogleDart"
+      },
+      {
+        "input": {
+          "text1": " iOS    Swift "
+        },
+        "output": "iOSSwift"
+      }
+    ]
+  },
+  {
+    "id": 433,
+    "slug": "mbpp-452-write-a-function-that-gives-loss-amount-if-the-given-amount-has-loss-else-return",
+    "title": "Write a function that gives loss amount if the given amount has loss else return",
+    "fn_name": "loss_amount",
+    "starter_py": "def loss_amount(actual_cost, sale_amount):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def loss_amount(actual_cost,sale_amount): \r\n  if(sale_amount > actual_cost):\r\n    amount = sale_amount - actual_cost\r\n    return amount\r\n  else:\r\n    return None",
+    "test_cases": [
+      {
+        "input": {
+          "actual_cost": 1500,
+          "sale_amount": 1200
+        },
+        "output": null
+      },
+      {
+        "input": {
+          "actual_cost": 100,
+          "sale_amount": 200
+        },
+        "output": 100
+      },
+      {
+        "input": {
+          "actual_cost": 2000,
+          "sale_amount": 5000
+        },
+        "output": 3000
+      }
+    ]
+  },
+  {
+    "id": 434,
+    "slug": "mbpp-453-find-the-sum-of-even-factors-of-a-number",
+    "title": "Find the sum of even factors of a number",
+    "fn_name": "sumofFactors",
+    "starter_py": "def sumofFactors(n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import math \r\ndef sumofFactors(n) : \r\n    if (n % 2 != 0) : \r\n        return 0\r\n    res = 1\r\n    for i in range(2, (int)(math.sqrt(n)) + 1) :    \r\n        count = 0\r\n        curr_sum = 1\r\n        curr_term = 1\r\n        while (n % i == 0) : \r\n            count= count + 1\r\n            n = n // i \r\n            if (i == 2 and count == 1) : \r\n                curr_sum = 0\r\n            curr_term = curr_term * i \r\n            curr_sum = curr_sum + curr_term \r\n        res = res * curr_sum  \r\n    if (n >= 2) : \r\n        res = res * (1 + n) \r\n    return res",
+    "test_cases": [
+      {
+        "input": {
+          "n": 18
+        },
+        "output": 26
+      },
+      {
+        "input": {
+          "n": 30
+        },
+        "output": 48
+      },
+      {
+        "input": {
+          "n": 6
+        },
+        "output": 8
+      }
+    ]
+  },
+  {
+    "id": 435,
+    "slug": "mbpp-454-write-a-function-that-matches-a-word-containing-z",
+    "title": "Write a function that matches a word containing 'z'",
+    "fn_name": "text_match_wordz",
+    "starter_py": "def text_match_wordz(text):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef text_match_wordz(text):\r\n        patterns = '\\w*z.\\w*'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "test_cases": [
+      {
+        "input": {
+          "text": "pythonz."
+        },
+        "output": "Found a match!"
+      },
+      {
+        "input": {
+          "text": "xyz."
+        },
+        "output": "Found a match!"
+      },
+      {
+        "input": {
+          "text": "  lang  ."
+        },
+        "output": "Not matched!"
+      }
+    ]
+  },
+  {
+    "id": 436,
+    "slug": "mbpp-455-check-whether-the-given-month-number-contains-31-days-or-not",
+    "title": "Check whether the given month number contains 31 days or not",
+    "fn_name": "check_monthnumb_number",
+    "starter_py": "def check_monthnumb_number(monthnum2):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def check_monthnumb_number(monthnum2):\r\n  if(monthnum2==1 or monthnum2==3 or monthnum2==5 or monthnum2==7 or monthnum2==8 or monthnum2==10 or monthnum2==12):\r\n    return True\r\n  else:\r\n    return False",
+    "test_cases": [
+      {
+        "input": {
+          "monthnum2": 5
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "monthnum2": 2
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "monthnum2": 6
+        },
+        "output": false
+      }
+    ]
+  },
+  {
+    "id": 437,
+    "slug": "mbpp-456-reverse-strings-in-a-given-list-of-string-values",
+    "title": "Reverse strings in a given list of string values",
+    "fn_name": "reverse_string_list",
+    "starter_py": "def reverse_string_list(stringlist):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def reverse_string_list(stringlist):\r\n    result = [x[::-1] for x in stringlist]\r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "stringlist": [
+            "Red",
+            "Green",
+            "Blue",
+            "White",
+            "Black"
+          ]
+        },
+        "output": [
+          "deR",
+          "neerG",
+          "eulB",
+          "etihW",
+          "kcalB"
+        ]
+      },
+      {
+        "input": {
+          "stringlist": [
+            "john",
+            "amal",
+            "joel",
+            "george"
+          ]
+        },
+        "output": [
+          "nhoj",
+          "lama",
+          "leoj",
+          "egroeg"
+        ]
+      },
+      {
+        "input": {
+          "stringlist": [
+            "jack",
+            "john",
+            "mary"
+          ]
+        },
+        "output": [
+          "kcaj",
+          "nhoj",
+          "yram"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 438,
+    "slug": "mbpp-457-find-the-sublist-having-minimum-length",
+    "title": "Find the sublist having minimum length",
+    "fn_name": "Find_Min",
+    "starter_py": "def Find_Min(lst):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def Find_Min(lst): \r\n    minList = min((x) for x in lst) \r\n    return minList",
+    "test_cases": [
+      {
+        "input": {
+          "lst": [
+            [
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": {
+          "lst": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              2,
+              7,
+              8
+            ]
+          ]
+        },
+        "output": [
+          1,
+          1
+        ]
+      },
+      {
+        "input": {
+          "lst": [
+            [
+              "x"
+            ],
+            [
+              "x",
+              "y"
+            ],
+            [
+              "x",
+              "y",
+              "z"
+            ]
+          ]
+        },
+        "output": [
+          "x"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 439,
+    "slug": "mbpp-458-find-the-area-of-a-rectangle",
+    "title": "Find the area of a rectangle",
+    "fn_name": "rectangle_area",
+    "starter_py": "def rectangle_area(l, b):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def rectangle_area(l,b):\r\n  area=l*b\r\n  return area",
+    "test_cases": [
+      {
+        "input": {
+          "l": 10,
+          "b": 20
+        },
+        "output": 200
+      },
+      {
+        "input": {
+          "l": 10,
+          "b": 5
+        },
+        "output": 50
+      },
+      {
+        "input": {
+          "l": 4,
+          "b": 2
+        },
+        "output": 8
+      }
+    ]
+  },
+  {
+    "id": 440,
+    "slug": "mbpp-459-remove-uppercase-substrings-from-a-given-string-by-using-regex",
+    "title": "Remove uppercase substrings from a given string by using regex",
+    "fn_name": "remove_uppercase",
+    "starter_py": "def remove_uppercase(str1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef remove_uppercase(str1):\r\n  remove_upper = lambda text: re.sub('[A-Z]', '', text)\r\n  result =  remove_upper(str1)\r\n  return (result)",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "cAstyoUrFavoRitETVshoWs"
+        },
+        "output": "cstyoravoitshos"
+      },
+      {
+        "input": {
+          "str1": "wAtchTheinTernEtrAdIo"
+        },
+        "output": "wtchheinerntrdo"
+      },
+      {
+        "input": {
+          "str1": "VoicESeaRchAndreComMendaTionS"
+        },
+        "output": "oiceachndreomendaion"
+      }
+    ]
+  },
+  {
+    "id": 441,
+    "slug": "mbpp-460-get-the-first-element-of-each-sublist",
+    "title": "Get the first element of each sublist",
+    "fn_name": "Extract",
+    "starter_py": "def Extract(lst):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def Extract(lst): \r\n    return [item[0] for item in lst]",
+    "test_cases": [
+      {
+        "input": {
+          "lst": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              6,
+              7,
+              8,
+              9
+            ]
+          ]
+        },
+        "output": [
+          1,
+          3,
+          6
+        ]
+      },
+      {
+        "input": {
+          "lst": [
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        "output": [
+          1,
+          4
+        ]
+      },
+      {
+        "input": {
+          "lst": [
+            [
+              9,
+              8,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        "output": [
+          9,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": 442,
+    "slug": "mbpp-461-count-the-upper-case-characters-in-a-given-string",
+    "title": "Count the upper case characters in a given string",
+    "fn_name": "upper_ctr",
+    "starter_py": "def upper_ctr(str):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def upper_ctr(str):\r\n    upper_ctr = 0\r\n    for i in range(len(str)):\r\n          if str[i] >= 'A' and str[i] <= 'Z': upper_ctr += 1\r\n          return upper_ctr",
+    "test_cases": [
+      {
+        "input": {
+          "str": "PYthon"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "str": "BigData"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "str": "program"
+        },
+        "output": 0
+      }
+    ]
+  },
+  {
+    "id": 443,
+    "slug": "mbpp-462-find-all-possible-combinations-of-the-elements-of-a-given-list",
+    "title": "Find all possible combinations of the elements of a given list",
+    "fn_name": "combinations_list",
+    "starter_py": "def combinations_list(list1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def combinations_list(list1):\r\n    if len(list1) == 0:\r\n        return [[]]\r\n    result = []\r\n    for el in combinations_list(list1[1:]):\r\n        result += [el, el+[list1[0]]]\r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            "orange",
+            "red",
+            "green",
+            "blue"
+          ]
+        },
+        "output": [
+          [],
+          [
+            "orange"
+          ],
+          [
+            "red"
+          ],
+          [
+            "red",
+            "orange"
+          ],
+          [
+            "green"
+          ],
+          [
+            "green",
+            "orange"
+          ],
+          [
+            "green",
+            "red"
+          ],
+          [
+            "green",
+            "red",
+            "orange"
+          ],
+          [
+            "blue"
+          ],
+          [
+            "blue",
+            "orange"
+          ],
+          [
+            "blue",
+            "red"
+          ],
+          [
+            "blue",
+            "red",
+            "orange"
+          ],
+          [
+            "blue",
+            "green"
+          ],
+          [
+            "blue",
+            "green",
+            "orange"
+          ],
+          [
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "blue",
+            "green",
+            "red",
+            "orange"
+          ]
+        ]
+      },
+      {
+        "input": {
+          "list1": [
+            "red",
+            "green",
+            "blue",
+            "white",
+            "black",
+            "orange"
+          ]
+        },
+        "output": [
+          [],
+          [
+            "red"
+          ],
+          [
+            "green"
+          ],
+          [
+            "green",
+            "red"
+          ],
+          [
+            "blue"
+          ],
+          [
+            "blue",
+            "red"
+          ],
+          [
+            "blue",
+            "green"
+          ],
+          [
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "white"
+          ],
+          [
+            "white",
+            "red"
+          ],
+          [
+            "white",
+            "green"
+          ],
+          [
+            "white",
+            "green",
+            "red"
+          ],
+          [
+            "white",
+            "blue"
+          ],
+          [
+            "white",
+            "blue",
+            "red"
+          ],
+          [
+            "white",
+            "blue",
+            "green"
+          ],
+          [
+            "white",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "black"
+          ],
+          [
+            "black",
+            "red"
+          ],
+          [
+            "black",
+            "green"
+          ],
+          [
+            "black",
+            "green",
+            "red"
+          ],
+          [
+            "black",
+            "blue"
+          ],
+          [
+            "black",
+            "blue",
+            "red"
+          ],
+          [
+            "black",
+            "blue",
+            "green"
+          ],
+          [
+            "black",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "black",
+            "white"
+          ],
+          [
+            "black",
+            "white",
+            "red"
+          ],
+          [
+            "black",
+            "white",
+            "green"
+          ],
+          [
+            "black",
+            "white",
+            "green",
+            "red"
+          ],
+          [
+            "black",
+            "white",
+            "blue"
+          ],
+          [
+            "black",
+            "white",
+            "blue",
+            "red"
+          ],
+          [
+            "black",
+            "white",
+            "blue",
+            "green"
+          ],
+          [
+            "black",
+            "white",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "orange"
+          ],
+          [
+            "orange",
+            "red"
+          ],
+          [
+            "orange",
+            "green"
+          ],
+          [
+            "orange",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "blue"
+          ],
+          [
+            "orange",
+            "blue",
+            "red"
+          ],
+          [
+            "orange",
+            "blue",
+            "green"
+          ],
+          [
+            "orange",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "white"
+          ],
+          [
+            "orange",
+            "white",
+            "red"
+          ],
+          [
+            "orange",
+            "white",
+            "green"
+          ],
+          [
+            "orange",
+            "white",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "white",
+            "blue"
+          ],
+          [
+            "orange",
+            "white",
+            "blue",
+            "red"
+          ],
+          [
+            "orange",
+            "white",
+            "blue",
+            "green"
+          ],
+          [
+            "orange",
+            "white",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "black"
+          ],
+          [
+            "orange",
+            "black",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "green"
+          ],
+          [
+            "orange",
+            "black",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "blue"
+          ],
+          [
+            "orange",
+            "black",
+            "blue",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "blue",
+            "green"
+          ],
+          [
+            "orange",
+            "black",
+            "blue",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "white"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "green"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "blue"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "blue",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "blue",
+            "green"
+          ],
+          [
+            "orange",
+            "black",
+            "white",
+            "blue",
+            "green",
+            "red"
+          ]
+        ]
+      },
+      {
+        "input": {
+          "list1": [
+            "red",
+            "green",
+            "black",
+            "orange"
+          ]
+        },
+        "output": [
+          [],
+          [
+            "red"
+          ],
+          [
+            "green"
+          ],
+          [
+            "green",
+            "red"
+          ],
+          [
+            "black"
+          ],
+          [
+            "black",
+            "red"
+          ],
+          [
+            "black",
+            "green"
+          ],
+          [
+            "black",
+            "green",
+            "red"
+          ],
+          [
+            "orange"
+          ],
+          [
+            "orange",
+            "red"
+          ],
+          [
+            "orange",
+            "green"
+          ],
+          [
+            "orange",
+            "green",
+            "red"
+          ],
+          [
+            "orange",
+            "black"
+          ],
+          [
+            "orange",
+            "black",
+            "red"
+          ],
+          [
+            "orange",
+            "black",
+            "green"
+          ],
+          [
+            "orange",
+            "black",
+            "green",
+            "red"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 444,
+    "slug": "mbpp-463-find-the-maximum-product-subarray-of-the-given-array",
+    "title": "Find the maximum product subarray of the given array",
+    "fn_name": "max_subarray_product",
+    "starter_py": "def max_subarray_product(arr):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def max_subarray_product(arr):\r\n\tn = len(arr)\r\n\tmax_ending_here = 1\r\n\tmin_ending_here = 1\r\n\tmax_so_far = 0\r\n\tflag = 0\r\n\tfor i in range(0, n):\r\n\t\tif arr[i] > 0:\r\n\t\t\tmax_ending_here = max_ending_here * arr[i]\r\n\t\t\tmin_ending_here = min (min_ending_here * arr[i], 1)\r\n\t\t\tflag = 1\r\n\t\telif arr[i] == 0:\r\n\t\t\tmax_ending_here = 1\r\n\t\t\tmin_ending_here = 1\r\n\t\telse:\r\n\t\t\ttemp = max_ending_here\r\n\t\t\tmax_ending_here = max (min_ending_here * arr[i], 1)\r\n\t\t\tmin_ending_here = temp * arr[i]\r\n\t\tif (max_so_far < max_ending_here):\r\n\t\t\tmax_so_far = max_ending_here\r\n\tif flag == 0 and max_so_far == 0:\r\n\t\treturn 0\r\n\treturn max_so_far",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            -2,
+            -3,
+            0,
+            7,
+            -8,
+            -2
+          ]
+        },
+        "output": 112
+      },
+      {
+        "input": {
+          "arr": [
+            6,
+            -3,
+            -10,
+            0,
+            2
+          ]
+        },
+        "output": 180
+      },
+      {
+        "input": {
+          "arr": [
+            -2,
+            -40,
+            0,
+            -2,
+            -3
+          ]
+        },
+        "output": 80
+      }
+    ]
+  },
+  {
+    "id": 445,
+    "slug": "mbpp-464-check-if-all-values-are-same-in-a-dictionary",
+    "title": "Check if all values are same in a dictionary",
+    "fn_name": "check_value",
+    "starter_py": "def check_value(dict, n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def check_value(dict, n):\r\n    result = all(x == n for x in dict.values()) \r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "dict": {
+            "Cierra Vega": 12,
+            "Alden Cantrell": 12,
+            "Kierra Gentry": 12,
+            "Pierre Cox": 12
+          },
+          "n": 10
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "dict": {
+            "Cierra Vega": 12,
+            "Alden Cantrell": 12,
+            "Kierra Gentry": 12,
+            "Pierre Cox": 12
+          },
+          "n": 12
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "dict": {
+            "Cierra Vega": 12,
+            "Alden Cantrell": 12,
+            "Kierra Gentry": 12,
+            "Pierre Cox": 12
+          },
+          "n": 5
+        },
+        "output": false
+      }
+    ]
+  },
+  {
+    "id": 446,
+    "slug": "mbpp-465-drop-empty-items-from-a-given-dictionary",
+    "title": "Drop empty items from a given dictionary",
+    "fn_name": "drop_empty",
+    "starter_py": "def drop_empty(dict1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def drop_empty(dict1):\r\n  dict1 = {key:value for (key, value) in dict1.items() if value is not None}\r\n  return dict1",
+    "test_cases": [
+      {
+        "input": {
+          "dict1": {
+            "c1": "Red",
+            "c2": "Green",
+            "c3": null
+          }
+        },
+        "output": {
+          "c1": "Red",
+          "c2": "Green"
+        }
+      },
+      {
+        "input": {
+          "dict1": {
+            "c1": "Red",
+            "c2": null,
+            "c3": null
+          }
+        },
+        "output": {
+          "c1": "Red"
+        }
+      },
+      {
+        "input": {
+          "dict1": {
+            "c1": null,
+            "c2": "Green",
+            "c3": null
+          }
+        },
+        "output": {
+          "c2": "Green"
+        }
+      }
+    ]
+  },
+  {
+    "id": 447,
+    "slug": "mbpp-466-find-the-peak-element-in-the-given-array",
+    "title": "Find the peak element in the given array",
+    "fn_name": "find_peak",
+    "starter_py": "def find_peak(arr, n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def find_peak_util(arr, low, high, n): \r\n\tmid = low + (high - low)/2\r\n\tmid = int(mid) \r\n\tif ((mid == 0 or arr[mid - 1] <= arr[mid]) and\r\n\t\t(mid == n - 1 or arr[mid + 1] <= arr[mid])): \r\n\t\treturn mid \r\n\telif (mid > 0 and arr[mid - 1] > arr[mid]): \r\n\t\treturn find_peak_util(arr, low, (mid - 1), n) \r\n\telse: \r\n\t\treturn find_peak_util(arr, (mid + 1), high, n) \r\ndef find_peak(arr, n): \r\n\treturn find_peak_util(arr, 0, n - 1, n)",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            3,
+            20,
+            4,
+            1,
+            0
+          ],
+          "n": 6
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "arr": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "n": 5
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "arr": [
+            8,
+            9,
+            11,
+            12,
+            14,
+            15
+          ],
+          "n": 6
+        },
+        "output": 5
+      }
+    ]
+  },
+  {
+    "id": 448,
+    "slug": "mbpp-467-convert-decimal-number-to-octal-number",
+    "title": "Convert decimal number to octal number",
+    "fn_name": "decimal_to_Octal",
+    "starter_py": "def decimal_to_Octal(deciNum):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def decimal_to_Octal(deciNum):\r\n    octalNum = 0\r\n    countval = 1;\r\n    dNo = deciNum;\r\n    while (deciNum!= 0):\r\n        remainder= deciNum % 8;\r\n        octalNum+= remainder*countval;\r\n        countval= countval*10;\r\n        deciNum //= 8; \r\n    return (octalNum)",
+    "test_cases": [
+      {
+        "input": {
+          "deciNum": 10
+        },
+        "output": 12
+      },
+      {
+        "input": {
+          "deciNum": 2
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "deciNum": 33
+        },
+        "output": 41
+      }
+    ]
+  },
+  {
+    "id": 449,
+    "slug": "mbpp-468-find-the-maximum-product-formed-by-multiplying-numbers-of-an-increasing-subseque",
+    "title": "Find the maximum product formed by multiplying numbers of an increasing subseque",
+    "fn_name": "max_product",
+    "starter_py": "def max_product(arr, n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def max_product(arr, n ): \r\n\tmpis =[0] * (n) \r\n\tfor i in range(n): \r\n\t\tmpis[i] = arr[i] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(i): \r\n\t\t\tif (arr[i] > arr[j] and\r\n\t\t\t\t\tmpis[i] < (mpis[j] * arr[i])): \r\n\t\t\t\t\t\tmpis[i] = mpis[j] * arr[i] \r\n\treturn max(mpis)",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            3,
+            100,
+            4,
+            5,
+            150,
+            6
+          ],
+          "n": 6
+        },
+        "output": 45000
+      },
+      {
+        "input": {
+          "arr": [
+            4,
+            42,
+            55,
+            68,
+            80
+          ],
+          "n": 5
+        },
+        "output": 50265600
+      },
+      {
+        "input": {
+          "arr": [
+            10,
+            22,
+            9,
+            33,
+            21,
+            50,
+            41,
+            60
+          ],
+          "n": 8
+        },
+        "output": 21780000
+      }
+    ]
+  },
+  {
+    "id": 450,
+    "slug": "mbpp-469-find-the-maximum-profit-earned-from-a-maximum-of-k-stock-transactions",
+    "title": "Find the maximum profit earned from a maximum of k stock transactions",
+    "fn_name": "max_profit",
+    "starter_py": "def max_profit(price, k):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def max_profit(price, k):\r\n    n = len(price)\r\n    final_profit = [[None for x in range(n)] for y in range(k + 1)]\r\n    for i in range(k + 1):\r\n        for j in range(n):\r\n            if i == 0 or j == 0:\r\n                final_profit[i][j] = 0\r\n            else:\r\n                max_so_far = 0\r\n                for x in range(j):\r\n                    curr_price = price[j] - price[x] + final_profit[i-1][x]\r\n                    if max_so_far < curr_price:\r\n                        max_so_far = curr_price\r\n                final_profit[i][j] = max(final_profit[i][j-1], max_so_far)\r\n    return final_profit[k][n-1]",
+    "test_cases": [
+      {
+        "input": {
+          "price": [
+            1,
+            5,
+            2,
+            3,
+            7,
+            6,
+            4,
+            5
+          ],
+          "k": 3
+        },
+        "output": 10
+      },
+      {
+        "input": {
+          "price": [
+            2,
+            4,
+            7,
+            5,
+            4,
+            3,
+            5
+          ],
+          "k": 2
+        },
+        "output": 7
+      },
+      {
+        "input": {
+          "price": [
+            10,
+            6,
+            8,
+            4,
+            2
+          ],
+          "k": 2
+        },
+        "output": 2
+      }
+    ]
+  },
+  {
+    "id": 451,
+    "slug": "mbpp-471-find-remainder-of-array-multiplication-divided-by-n",
+    "title": "Find remainder of array multiplication divided by n",
+    "fn_name": "find_remainder",
+    "starter_py": "def find_remainder(arr, lens, n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def find_remainder(arr, lens, n): \r\n    mul = 1\r\n    for i in range(lens):  \r\n        mul = (mul * (arr[i] % n)) % n \r\n    return mul % n",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            100,
+            10,
+            5,
+            25,
+            35,
+            14
+          ],
+          "lens": 6,
+          "n": 11
+        },
+        "output": 9
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            1,
+            1
+          ],
+          "lens": 3,
+          "n": 1
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            2,
+            1
+          ],
+          "lens": 3,
+          "n": 2
+        },
+        "output": 0
+      }
+    ]
+  },
+  {
+    "id": 452,
+    "slug": "mbpp-472-check-whether-the-given-list-contains-consecutive-numbers-or-not",
+    "title": "Check whether the given list contains consecutive numbers or not",
+    "fn_name": "check_Consecutive",
+    "starter_py": "def check_Consecutive(l):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def check_Consecutive(l): \r\n    return sorted(l) == list(range(min(l),max(l)+1))",
+    "test_cases": [
+      {
+        "input": {
+          "l": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "l": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "l": [
+            1,
+            2,
+            1
+          ]
+        },
+        "output": false
+      }
+    ]
+  },
+  {
+    "id": 453,
+    "slug": "mbpp-474-replace-characters-in-a-string",
+    "title": "Replace characters in a string",
+    "fn_name": "replace_char",
+    "starter_py": "def replace_char(str1, ch, newch):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def replace_char(str1,ch,newch):\r\n str2 = str1.replace(ch, newch)\r\n return str2",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "polygon",
+          "ch": "y",
+          "newch": "l"
+        },
+        "output": "pollgon"
+      },
+      {
+        "input": {
+          "str1": "character",
+          "ch": "c",
+          "newch": "a"
+        },
+        "output": "aharaater"
+      },
+      {
+        "input": {
+          "str1": "python",
+          "ch": "l",
+          "newch": "a"
+        },
+        "output": "python"
+      }
+    ]
+  },
+  {
+    "id": 454,
+    "slug": "mbpp-476-find-the-sum-of-the-largest-and-smallest-value-in-a-given-array",
+    "title": "Find the sum of the largest and smallest value in a given array",
+    "fn_name": "big_sum",
+    "starter_py": "def big_sum(nums):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def big_sum(nums):\r\n      sum= max(nums)+min(nums)\r\n      return sum",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            1,
+            2,
+            3
+          ]
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "nums": [
+            -1,
+            2,
+            3,
+            4
+          ]
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "nums": [
+            2,
+            3,
+            6
+          ]
+        },
+        "output": 8
+      }
+    ]
+  },
+  {
+    "id": 455,
+    "slug": "mbpp-477-convert-the-given-string-to-lower-case",
+    "title": "Convert the given string to lower case",
+    "fn_name": "is_lower",
+    "starter_py": "def is_lower(string):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def is_lower(string):\r\n  return (string.lower())",
+    "test_cases": [
+      {
+        "input": {
+          "string": "InValid"
+        },
+        "output": "invalid"
+      },
+      {
+        "input": {
+          "string": "TruE"
+        },
+        "output": "true"
+      },
+      {
+        "input": {
+          "string": "SenTenCE"
+        },
+        "output": "sentence"
+      }
+    ]
+  },
+  {
+    "id": 456,
+    "slug": "mbpp-478-remove-lowercase-substrings-from-a-given-string",
+    "title": "Remove lowercase substrings from a given string",
+    "fn_name": "remove_lowercase",
+    "starter_py": "def remove_lowercase(str1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re\r\ndef remove_lowercase(str1):\r\n remove_lower = lambda text: re.sub('[a-z]', '', text)\r\n result =  remove_lower(str1)\r\n return result",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "PYTHon"
+        },
+        "output": "PYTH"
+      },
+      {
+        "input": {
+          "str1": "FInD"
+        },
+        "output": "FID"
+      },
+      {
+        "input": {
+          "str1": "STRinG"
+        },
+        "output": "STRG"
+      }
+    ]
+  },
+  {
+    "id": 457,
+    "slug": "mbpp-479-find-the-first-digit-of-a-given-number",
+    "title": "Find the first digit of a given number",
+    "fn_name": "first_Digit",
+    "starter_py": "def first_Digit(n):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def first_Digit(n) :  \r\n    while n >= 10:  \r\n        n = n / 10; \r\n    return int(n)",
+    "test_cases": [
+      {
+        "input": {
+          "n": 123
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "n": 456
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "n": 12
+        },
+        "output": 1
+      }
+    ]
+  },
+  {
+    "id": 458,
+    "slug": "mbpp-480-find-the-maximum-occurring-character-in-a-given-string",
+    "title": "Find the maximum occurring character in a given string",
+    "fn_name": "get_max_occuring_char",
+    "starter_py": "def get_max_occuring_char(str1):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def get_max_occuring_char(str1):\r\n  ASCII_SIZE = 256\r\n  ctr = [0] * ASCII_SIZE\r\n  max = -1\r\n  ch = ''\r\n  for i in str1:\r\n    ctr[ord(i)]+=1;\r\n  for i in str1:\r\n    if max < ctr[ord(i)]:\r\n      max = ctr[ord(i)]\r\n      ch = i\r\n  return ch",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "data"
+        },
+        "output": "a"
+      },
+      {
+        "input": {
+          "str1": "create"
+        },
+        "output": "e"
+      },
+      {
+        "input": {
+          "str1": "brilliant girl"
+        },
+        "output": "i"
+      }
+    ]
+  },
+  {
+    "id": 459,
+    "slug": "mbpp-481-determine-if-there-is-a-subset-of-the-given-set-with-sum-equal-to-the-given-sum",
+    "title": "Determine if there is a subset of the given set with sum equal to the given sum",
+    "fn_name": "is_subset_sum",
+    "starter_py": "def is_subset_sum(set, n, sum):\n    # Write your solution here\n    pass\n",
+    "ref_py": "def is_subset_sum(set, n, sum):\r\n\tif (sum == 0):\r\n\t\treturn True\r\n\tif (n == 0):\r\n\t\treturn False\r\n\tif (set[n - 1] > sum):\r\n\t\treturn is_subset_sum(set, n - 1, sum)\r\n\treturn is_subset_sum(set, n-1, sum) or is_subset_sum(set, n-1, sum-set[n-1])",
+    "test_cases": [
+      {
+        "input": {
+          "set": [
+            3,
+            34,
+            4,
+            12,
+            5,
+            2
+          ],
+          "n": 6,
+          "sum": 9
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "set": [
+            3,
+            34,
+            4,
+            12,
+            5,
+            2
+          ],
+          "n": 6,
+          "sum": 30
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "set": [
+            3,
+            34,
+            4,
+            12,
+            5,
+            2
+          ],
+          "n": 6,
+          "sum": 15
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 460,
+    "slug": "mbpp-482-find-sequences-of-one-upper-case-letter-followed-by-lower-case-letters-in-the-gi",
+    "title": "Find sequences of one upper case letter followed by lower case letters in the gi",
+    "fn_name": "match",
+    "starter_py": "def match(text):\n    # Write your solution here\n    pass\n",
+    "ref_py": "import re \r\ndef match(text): \r\n\t\tpattern = '[A-Z]+[a-z]+$'\r\n\t\tif re.search(pattern, text): \r\n\t\t\t\treturn('Yes') \r\n\t\telse: \r\n\t\t\t\treturn('No')",
+    "test_cases": [
+      {
+        "input": {
+          "text": "Geeks"
+        },
+        "output": "Yes"
+      },
+      {
+        "input": {
+          "text": "geeksforGeeks"
+        },
+        "output": "Yes"
+      },
+      {
+        "input": {
+          "text": "geeks"
+        },
+        "output": "No"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2351 @@
+[
+  {
+    "id": 461,
+    "title": "Find the first natural number whose factorial is divisible by x",
+    "fn_name": "first_Factorial_Divisible_Number",
+    "ref_py": "def first_Factorial_Divisible_Number(x): \r\n    i = 1;\r\n    fact = 1; \r\n    for i in range(1,x): \r\n        fact = fact * i \r\n        if (fact % x == 0): \r\n            break\r\n    return i",
+    "test_cases": [
+      {
+        "input": {
+          "x": 10
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": 15
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": 5
+        },
+        "output": 4
+      }
+    ]
+  },
+  {
+    "id": 462,
+    "title": "Remove the matching tuples from the given two tuples",
+    "fn_name": "remove_matching_tuple",
+    "ref_py": "def remove_matching_tuple(test_list1, test_list2):\r\n  res = [sub for sub in test_list1 if sub not in test_list2]\r\n  return (res)",
+    "test_cases": [
+      {
+        "input": {
+          "test_list1": [
+            [
+              "Hello",
+              "dude"
+            ],
+            [
+              "How",
+              "are"
+            ],
+            [
+              "you",
+              "?"
+            ]
+          ],
+          "test_list2": [
+            [
+              "Hello",
+              "dude"
+            ],
+            [
+              "How",
+              "are"
+            ]
+          ]
+        },
+        "output": [
+          [
+            "you",
+            "?"
+          ]
+        ]
+      },
+      {
+        "input": {
+          "test_list1": [
+            [
+              "Part",
+              "of"
+            ],
+            [
+              "the",
+              "journey"
+            ],
+            [
+              "is ",
+              "end"
+            ]
+          ],
+          "test_list2": [
+            [
+              "Journey",
+              "the"
+            ],
+            [
+              "is",
+              "end"
+            ]
+          ]
+        },
+        "output": [
+          [
+            "Part",
+            "of"
+          ],
+          [
+            "the",
+            "journey"
+          ],
+          [
+            "is ",
+            "end"
+          ]
+        ]
+      },
+      {
+        "input": {
+          "test_list1": [
+            [
+              "Its",
+              "been"
+            ],
+            [
+              "a",
+              "long"
+            ],
+            [
+              "day",
+              "without"
+            ]
+          ],
+          "test_list2": [
+            [
+              "a",
+              "long"
+            ],
+            [
+              "my",
+              "friend"
+            ]
+          ]
+        },
+        "output": [
+          [
+            "Its",
+            "been"
+          ],
+          [
+            "day",
+            "without"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 463,
+    "title": "Find the largest palindromic number in the given array",
+    "fn_name": "largest_palindrome",
+    "ref_py": "def is_palindrome(n) : \r\n\tdivisor = 1\r\n\twhile (n / divisor >= 10) : \r\n\t\tdivisor *= 10\r\n\twhile (n != 0) : \r\n\t\tleading = n // divisor \r\n\t\ttrailing = n % 10\r\n\t\tif (leading != trailing) : \r\n\t\t\treturn False\r\n\t\tn = (n % divisor) // 10\r\n\t\tdivisor = divisor // 100\r\n\treturn True\r\ndef largest_palindrome(A, n) : \r\n\tA.sort() \r\n\tfor i in range(n - 1, -1, -1) : \r\n\t\tif (is_palindrome(A[i])) : \r\n\t\t\treturn A[i] \r\n\treturn -1",
+    "test_cases": [
+      {
+        "input": {
+          "A": [
+            1,
+            232,
+            54545,
+            999991
+          ],
+          "n": 4
+        },
+        "output": 54545
+      },
+      {
+        "input": {
+          "A": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            50
+          ],
+          "n": 6
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "A": [
+            1,
+            3,
+            7,
+            9,
+            45
+          ],
+          "n": 5
+        },
+        "output": 9
+      }
+    ]
+  },
+  {
+    "id": 464,
+    "title": "Sort a list of tuples in increasing order by the last element in each tuple",
+    "fn_name": "sort_tuple",
+    "ref_py": "def sort_tuple(tup): \r\n\tlst = len(tup) \r\n\tfor i in range(0, lst): \r\n\t\tfor j in range(0, lst-i-1): \r\n\t\t\tif (tup[j][-1] > tup[j + 1][-1]): \r\n\t\t\t\ttemp = tup[j] \r\n\t\t\t\ttup[j]= tup[j + 1] \r\n\t\t\t\ttup[j + 1]= temp \r\n\treturn tup",
+    "test_cases": [
+      {
+        "input": {
+          "tup": [
+            [
+              1,
+              3
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        "output": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      {
+        "input": {
+          "tup": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "output": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      },
+      {
+        "input": {
+          "tup": [
+            [
+              3,
+              9
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        "output": [
+          [
+            4,
+            3
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            3,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": 465,
+    "title": "Find the area of a pentagon",
+    "fn_name": "area_pentagon",
+    "ref_py": "import math\r\ndef area_pentagon(a):\r\n  area=(math.sqrt(5*(5+2*math.sqrt(5)))*pow(a,2))/4.0\r\n  return area",
+    "test_cases": [
+      {
+        "input": {
+          "a": 5
+        },
+        "output": 43.01193501472417
+      },
+      {
+        "input": {
+          "a": 10
+        },
+        "output": 172.0477400588967
+      },
+      {
+        "input": {
+          "a": 15
+        },
+        "output": 387.10741513251753
+      }
+    ]
+  },
+  {
+    "id": 466,
+    "title": "Find the frequency of the largest value in a given array",
+    "fn_name": "frequency_Of_Largest",
+    "ref_py": "def frequency_Of_Largest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] >mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq",
+    "test_cases": [
+      {
+        "input": {
+          "n": 5,
+          "arr": [
+            1,
+            2,
+            3,
+            4,
+            4
+          ]
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "n": 3,
+          "arr": [
+            5,
+            6,
+            5
+          ]
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "n": 4,
+          "arr": [
+            2,
+            7,
+            7,
+            7
+          ]
+        },
+        "output": 3
+      }
+    ]
+  },
+  {
+    "id": 467,
+    "title": "Find the sum of geometric progression series",
+    "fn_name": "sum_gp",
+    "ref_py": "import math\r\ndef sum_gp(a,n,r):\r\n total = (a * (1 - math.pow(r, n ))) / (1- r)\r\n return total",
+    "test_cases": [
+      {
+        "input": {
+          "a": 1,
+          "n": 5,
+          "r": 2
+        },
+        "output": 31
+      },
+      {
+        "input": {
+          "a": 1,
+          "n": 5,
+          "r": 4
+        },
+        "output": 341
+      },
+      {
+        "input": {
+          "a": 2,
+          "n": 6,
+          "r": 3
+        },
+        "output": 728
+      }
+    ]
+  },
+  {
+    "id": 468,
+    "title": "Search an element in the given array by using binary search",
+    "fn_name": "binary_search",
+    "ref_py": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+    "test_cases": [
+      {
+        "input": {
+          "item_list": [
+            1,
+            2,
+            3,
+            5,
+            8
+          ],
+          "item": 6
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "item_list": [
+            7,
+            8,
+            9,
+            10,
+            13
+          ],
+          "item": 10
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "item_list": [
+            11,
+            13,
+            14,
+            19,
+            22,
+            36
+          ],
+          "item": 23
+        },
+        "output": false
+      }
+    ]
+  },
+  {
+    "id": 469,
+    "title": "Convert the given binary tuple to integer",
+    "fn_name": "binary_to_integer",
+    "ref_py": "def binary_to_integer(test_tup):\r\n  res = int(\"\".join(str(ele) for ele in test_tup), 2)\r\n  return (str(res))",
+    "test_cases": [
+      {
+        "input": {
+          "test_tup": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        "output": "105"
+      },
+      {
+        "input": {
+          "test_tup": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        "output": "101"
+      },
+      {
+        "input": {
+          "test_tup": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        "output": "53"
+      }
+    ]
+  },
+  {
+    "id": 470,
+    "title": "Remove lowercase substrings from a given string by using regex",
+    "fn_name": "remove_lowercase",
+    "ref_py": "import re\r\ndef remove_lowercase(str1):\r\n  remove_lower = lambda text: re.sub('[a-z]', '', text)\r\n  result =  remove_lower(str1)\r\n  return (result)",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "KDeoALOklOOHserfLoAJSIskdsf"
+        },
+        "output": "KDALOOOHLAJSI"
+      },
+      {
+        "input": {
+          "str1": "ProducTnamEstreAmIngMediAplAYer"
+        },
+        "output": "PTEAIMAAY"
+      },
+      {
+        "input": {
+          "str1": "maNufacTuredbYSheZenTechNolOGIes"
+        },
+        "output": "NTYSZTNOGI"
+      }
+    ]
+  },
+  {
+    "id": 471,
+    "title": "Find the smallest integers from a given list of numbers using heap queue algorit",
+    "fn_name": "heap_queue_smallest",
+    "ref_py": "import heapq as hq\r\ndef heap_queue_smallest(nums,n):\r\n  smallest_nums = hq.nsmallest(n, nums)\r\n  return smallest_nums",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            25,
+            35,
+            22,
+            85,
+            14,
+            65,
+            75,
+            25,
+            58
+          ],
+          "n": 3
+        },
+        "output": [
+          14,
+          22,
+          25
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            25,
+            35,
+            22,
+            85,
+            14,
+            65,
+            75,
+            25,
+            58
+          ],
+          "n": 2
+        },
+        "output": [
+          14,
+          22
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            25,
+            35,
+            22,
+            85,
+            14,
+            65,
+            75,
+            22,
+            58
+          ],
+          "n": 5
+        },
+        "output": [
+          14,
+          22,
+          22,
+          25,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "id": 472,
+    "title": "Find the surface area of a cone",
+    "fn_name": "surfacearea_cone",
+    "ref_py": "import math\r\ndef surfacearea_cone(r,h):\r\n  l = math.sqrt(r * r + h * h)\r\n  SA = math.pi * r * (r + l)\r\n  return SA",
+    "test_cases": [
+      {
+        "input": {
+          "r": 5,
+          "h": 12
+        },
+        "output": 282.7433388230814
+      },
+      {
+        "input": {
+          "r": 10,
+          "h": 15
+        },
+        "output": 880.5179353159282
+      },
+      {
+        "input": {
+          "r": 19,
+          "h": 17
+        },
+        "output": 2655.923961165254
+      }
+    ]
+  },
+  {
+    "id": 473,
+    "title": "Find gcd of two positive integers",
+    "fn_name": "gcd",
+    "ref_py": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+    "test_cases": [
+      {
+        "input": {
+          "x": 12,
+          "y": 17
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "x": 4,
+          "y": 6
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "x": 2,
+          "y": 9
+        },
+        "output": 1
+      }
+    ]
+  },
+  {
+    "id": 474,
+    "title": "Find the diameter of a circle",
+    "fn_name": "diameter_circle",
+    "ref_py": "def diameter_circle(r):\r\n  diameter=2*r\r\n  return diameter",
+    "test_cases": [
+      {
+        "input": {
+          "r": 10
+        },
+        "output": 20
+      },
+      {
+        "input": {
+          "r": 40
+        },
+        "output": 80
+      },
+      {
+        "input": {
+          "r": 15
+        },
+        "output": 30
+      }
+    ]
+  },
+  {
+    "id": 475,
+    "title": "Concatenate all elements of the given list into a string",
+    "fn_name": "concatenate_elements",
+    "ref_py": "def concatenate_elements(list):\r\n  ans = ' '\r\n  for i in list:\r\n    ans = ans+ ' '+i\r\n  return (ans)",
+    "test_cases": [
+      {
+        "input": {
+          "list": [
+            "hello",
+            "there",
+            "have",
+            "a",
+            "rocky",
+            "day"
+          ]
+        },
+        "output": "  hello there have a rocky day"
+      },
+      {
+        "input": {
+          "list": [
+            "Hi",
+            "there",
+            "How",
+            "are",
+            "you"
+          ]
+        },
+        "output": "  Hi there How are you"
+      },
+      {
+        "input": {
+          "list": [
+            "Part",
+            "of",
+            "the",
+            "journey",
+            "is",
+            "end"
+          ]
+        },
+        "output": "  Part of the journey is end"
+      }
+    ]
+  },
+  {
+    "id": 476,
+    "title": "Find common divisor between two numbers in a given pair",
+    "fn_name": "num_comm_div",
+    "ref_py": "def ngcd(x,y):\r\n    i=1\r\n    while(i<=x and i<=y):\r\n        if(x%i==0 and y%i == 0):\r\n            gcd=i;\r\n        i+=1\r\n    return gcd;\r\ndef num_comm_div(x,y):\r\n  n = ngcd(x,y)\r\n  result = 0\r\n  z = int(n**0.5)\r\n  i = 1\r\n  while(i <= z):\r\n    if(n % i == 0):\r\n      result += 2 \r\n      if(i == n/i):\r\n        result-=1\r\n    i+=1\r\n  return result",
+    "test_cases": [
+      {
+        "input": {
+          "x": 2,
+          "y": 4
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "x": 2,
+          "y": 8
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "x": 12,
+          "y": 24
+        },
+        "output": 6
+      }
+    ]
+  },
+  {
+    "id": 477,
+    "title": "Find remainder of two numbers",
+    "fn_name": "find",
+    "ref_py": "def find(n,m):\r\n  r = n%m\r\n  return (r)",
+    "test_cases": [
+      {
+        "input": {
+          "n": 3,
+          "m": 3
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "n": 10,
+          "m": 3
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "n": 16,
+          "m": 5
+        },
+        "output": 1
+      }
+    ]
+  },
+  {
+    "id": 478,
+    "title": "Add consecutive numbers of a given list",
+    "fn_name": "add_consecutive_nums",
+    "ref_py": "def add_consecutive_nums(nums):\r\n    result = [b+a for a, b in zip(nums[:-1], nums[1:])]\r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            1,
+            1,
+            3,
+            4,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "output": [
+          2,
+          4,
+          7,
+          8,
+          9,
+          11,
+          13
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            4,
+            5,
+            8,
+            9,
+            6,
+            10
+          ]
+        },
+        "output": [
+          9,
+          13,
+          17,
+          15,
+          16
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "output": [
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "id": 479,
+    "title": "Find the cube sum of first n natural numbers",
+    "fn_name": "sum_Of_Series",
+    "ref_py": "def sum_Of_Series(n): \r\n    sum = 0\r\n    for i in range(1,n + 1): \r\n        sum += i * i*i       \r\n    return sum",
+    "test_cases": [
+      {
+        "input": {
+          "n": 5
+        },
+        "output": 225
+      },
+      {
+        "input": {
+          "n": 2
+        },
+        "output": 9
+      },
+      {
+        "input": {
+          "n": 3
+        },
+        "output": 36
+      }
+    ]
+  },
+  {
+    "id": 480,
+    "title": "Move all zeroes to the end of the given array",
+    "fn_name": "re_order",
+    "ref_py": "def re_order(A):\r\n    k = 0\r\n    for i in A:\r\n        if i:\r\n            A[k] = i\r\n            k = k + 1\r\n    for i in range(k, len(A)):\r\n        A[i] = 0\r\n    return A",
+    "test_cases": [
+      {
+        "input": {
+          "A": [
+            6,
+            0,
+            8,
+            2,
+            3,
+            0,
+            4,
+            0,
+            1
+          ]
+        },
+        "output": [
+          6,
+          8,
+          2,
+          3,
+          4,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": {
+          "A": [
+            4,
+            0,
+            2,
+            7,
+            0,
+            9,
+            0,
+            12,
+            0
+          ]
+        },
+        "output": [
+          4,
+          2,
+          7,
+          9,
+          12,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": {
+          "A": [
+            3,
+            11,
+            0,
+            74,
+            14,
+            0,
+            1,
+            0,
+            2
+          ]
+        },
+        "output": [
+          3,
+          11,
+          74,
+          14,
+          1,
+          2,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": 481,
+    "title": "Calculate the permutation coefficient of given p(n, k)",
+    "fn_name": "permutation_coefficient",
+    "ref_py": "def permutation_coefficient(n, k): \r\n\tP = [[0 for i in range(k + 1)] \r\n\t\t\tfor j in range(n + 1)] \r\n\tfor i in range(n + 1): \r\n\t\tfor j in range(min(i, k) + 1): \r\n\t\t\tif (j == 0): \r\n\t\t\t\tP[i][j] = 1\r\n\t\t\telse: \r\n\t\t\t\tP[i][j] = P[i - 1][j] + ( \r\n\t\t\t\t\t\tj * P[i - 1][j - 1]) \r\n\t\t\tif (j < k): \r\n\t\t\t\tP[i][j + 1] = 0\r\n\treturn P[n][k]",
+    "test_cases": [
+      {
+        "input": {
+          "n": 10,
+          "k": 2
+        },
+        "output": 90
+      },
+      {
+        "input": {
+          "n": 10,
+          "k": 3
+        },
+        "output": 720
+      },
+      {
+        "input": {
+          "n": 10,
+          "k": 1
+        },
+        "output": 10
+      }
+    ]
+  },
+  {
+    "id": 482,
+    "title": "Remove specific words from a given list",
+    "fn_name": "remove_words",
+    "ref_py": "def remove_words(list1, removewords):\r\n    for word in list(list1):\r\n        if word in removewords:\r\n            list1.remove(word)\r\n    return list1",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            "red",
+            "green",
+            "blue",
+            "white",
+            "black",
+            "orange"
+          ],
+          "removewords": [
+            "white",
+            "orange"
+          ]
+        },
+        "output": [
+          "red",
+          "green",
+          "blue",
+          "black"
+        ]
+      },
+      {
+        "input": {
+          "list1": [
+            "red",
+            "green",
+            "blue",
+            "white",
+            "black",
+            "orange"
+          ],
+          "removewords": [
+            "black",
+            "orange"
+          ]
+        },
+        "output": [
+          "red",
+          "green",
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "input": {
+          "list1": [
+            "red",
+            "green",
+            "blue",
+            "white",
+            "black",
+            "orange"
+          ],
+          "removewords": [
+            "blue",
+            "white"
+          ]
+        },
+        "output": [
+          "red",
+          "green",
+          "black",
+          "orange"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 483,
+    "title": "Check if the common elements between two given lists are in the same order or no",
+    "fn_name": "same_order",
+    "ref_py": "def same_order(l1, l2):\r\n    common_elements = set(l1) & set(l2)\r\n    l1 = [e for e in l1 if e in common_elements]\r\n    l2 = [e for e in l2 if e in common_elements]\r\n    return l1 == l2",
+    "test_cases": [
+      {
+        "input": {
+          "l1": [
+            "red",
+            "green",
+            "black",
+            "orange"
+          ],
+          "l2": [
+            "red",
+            "pink",
+            "green",
+            "white",
+            "black"
+          ]
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "l1": [
+            "red",
+            "pink",
+            "green",
+            "white",
+            "black"
+          ],
+          "l2": [
+            "white",
+            "orange",
+            "pink",
+            "black"
+          ]
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "l1": [
+            "red",
+            "green",
+            "black",
+            "orange"
+          ],
+          "l2": [
+            "red",
+            "pink",
+            "green",
+            "white",
+            "black"
+          ]
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 484,
+    "title": "Find the average of odd numbers till a given odd number",
+    "fn_name": "average_Odd",
+    "ref_py": "def average_Odd(n) : \r\n    if (n%2==0) : \r\n        return (\"Invalid Input\") \r\n        return -1 \r\n    sm =0\r\n    count =0\r\n    while (n>=1) : \r\n        count=count+1\r\n        sm = sm + n \r\n        n = n-2\r\n    return sm//count",
+    "test_cases": [
+      {
+        "input": {
+          "n": 9
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "n": 5
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "n": 11
+        },
+        "output": 6
+      }
+    ]
+  },
+  {
+    "id": 485,
+    "title": "Find the number of subsequences having product smaller than k for the given non",
+    "fn_name": "no_of_subsequences",
+    "ref_py": "def no_of_subsequences(arr, k): \r\n\tn = len(arr) \r\n\tdp = [[0 for i in range(n + 1)] \r\n\t\t\tfor j in range(k + 1)] \r\n\tfor i in range(1, k + 1): \r\n\t\tfor j in range(1, n + 1): \r\n\t\t\tdp[i][j] = dp[i][j - 1] \r\n\t\t\tif arr[j - 1] <= i and arr[j - 1] > 0: \r\n\t\t\t\tdp[i][j] += dp[i // arr[j - 1]][j - 1] + 1\r\n\treturn dp[k][n]",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "k": 10
+        },
+        "output": 11
+      },
+      {
+        "input": {
+          "arr": [
+            4,
+            8,
+            7,
+            2
+          ],
+          "k": 50
+        },
+        "output": 9
+      },
+      {
+        "input": {
+          "arr": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "k": 15
+        },
+        "output": 4
+      }
+    ]
+  },
+  {
+    "id": 486,
+    "title": "Find minimum sum of factors of a given number",
+    "fn_name": "find_Min_Sum",
+    "ref_py": "def find_Min_Sum(num): \r\n    sum = 0\r\n    i = 2\r\n    while(i * i <= num): \r\n        while(num % i == 0): \r\n            sum += i \r\n            num /= i \r\n        i += 1\r\n    sum += num \r\n    return sum",
+    "test_cases": [
+      {
+        "input": {
+          "num": 12
+        },
+        "output": 7
+      },
+      {
+        "input": {
+          "num": 105
+        },
+        "output": 15
+      },
+      {
+        "input": {
+          "num": 2
+        },
+        "output": 2
+      }
+    ]
+  },
+  {
+    "id": 487,
+    "title": "Convert tuple into list by adding the given string after every element",
+    "fn_name": "add_str",
+    "ref_py": "def add_str(test_tup, K):\r\n  res = [ele for sub in test_tup for ele in (sub, K)]\r\n  return (res)",
+    "test_cases": [
+      {
+        "input": {
+          "test_tup": [
+            5,
+            6,
+            7,
+            4,
+            9
+          ],
+          "K": "FDF"
+        },
+        "output": [
+          5,
+          "FDF",
+          6,
+          "FDF",
+          7,
+          "FDF",
+          4,
+          "FDF",
+          9,
+          "FDF"
+        ]
+      },
+      {
+        "input": {
+          "test_tup": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "K": "PF"
+        },
+        "output": [
+          7,
+          "PF",
+          8,
+          "PF",
+          9,
+          "PF",
+          10,
+          "PF"
+        ]
+      },
+      {
+        "input": {
+          "test_tup": [
+            11,
+            14,
+            12,
+            1,
+            4
+          ],
+          "K": "JH"
+        },
+        "output": [
+          11,
+          "JH",
+          14,
+          "JH",
+          12,
+          "JH",
+          1,
+          "JH",
+          4,
+          "JH"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 488,
+    "title": "Find the summation of tuple elements in the given tuple list",
+    "fn_name": "sum_elements",
+    "ref_py": "def sum_elements(test_tup):\r\n  res = sum(list(test_tup))\r\n  return (res)",
+    "test_cases": [
+      {
+        "input": {
+          "test_tup": [
+            7,
+            8,
+            9,
+            1,
+            10,
+            7
+          ]
+        },
+        "output": 42
+      },
+      {
+        "input": {
+          "test_tup": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "output": 21
+      },
+      {
+        "input": {
+          "test_tup": [
+            11,
+            12,
+            13,
+            45,
+            14
+          ]
+        },
+        "output": 95
+      }
+    ]
+  },
+  {
+    "id": 489,
+    "title": "Check if there is a subset with sum divisible by m",
+    "fn_name": "modular_sum",
+    "ref_py": "def modular_sum(arr, n, m): \r\n\tif (n > m): \r\n\t\treturn True\r\n\tDP = [False for i in range(m)] \r\n\tfor i in range(n): \r\n\t\tif (DP[0]): \r\n\t\t\treturn True\r\n\t\ttemp = [False for i in range(m)] \r\n\t\tfor j in range(m): \r\n\t\t\tif (DP[j] == True): \r\n\t\t\t\tif (DP[(j + arr[i]) % m] == False): \r\n\t\t\t\t\ttemp[(j + arr[i]) % m] = True\r\n\t\tfor j in range(m): \r\n\t\t\tif (temp[j]): \r\n\t\t\t\tDP[j] = True\r\n\t\tDP[arr[i] % m] = True\r\n\treturn DP[0]",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            3,
+            1,
+            7,
+            5
+          ],
+          "n": 4,
+          "m": 6
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            7
+          ],
+          "n": 2,
+          "m": 5
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            6
+          ],
+          "n": 2,
+          "m": 5
+        },
+        "output": false
+      }
+    ]
+  },
+  {
+    "id": 490,
+    "title": "Sort a list of elements using radix sort",
+    "fn_name": "radix_sort",
+    "ref_py": "def radix_sort(nums):\r\n    RADIX = 10\r\n    placement = 1\r\n    max_digit = max(nums)\r\n\r\n    while placement < max_digit:\r\n      buckets = [list() for _ in range( RADIX )]\r\n      for i in nums:\r\n        tmp = int((i / placement) % RADIX)\r\n        buckets[tmp].append(i)\r\n      a = 0\r\n      for b in range( RADIX ):\r\n        buck = buckets[b]\r\n        for i in buck:\r\n          nums[a] = i\r\n          a += 1\r\n      placement *= RADIX\r\n    return nums",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            15,
+            79,
+            25,
+            68,
+            37
+          ]
+        },
+        "output": [
+          15,
+          25,
+          37,
+          68,
+          79
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            9,
+            11,
+            8,
+            7,
+            3,
+            2
+          ]
+        },
+        "output": [
+          2,
+          3,
+          7,
+          8,
+          9,
+          11
+        ]
+      },
+      {
+        "input": {
+          "nums": [
+            36,
+            12,
+            24,
+            26,
+            29
+          ]
+        },
+        "output": [
+          12,
+          24,
+          26,
+          29,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "id": 491,
+    "title": "Find the largest postive number from the given list",
+    "fn_name": "largest_pos",
+    "ref_py": "def largest_pos(list1): \r\n    max = list1[0] \r\n    for x in list1: \r\n        if x > max : \r\n             max = x  \r\n    return max",
+    "test_cases": [
+      {
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            4,
+            -1
+          ]
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "list1": [
+            0,
+            1,
+            2,
+            -5,
+            -1,
+            6
+          ]
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "list1": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "output": 1
+      }
+    ]
+  },
+  {
+    "id": 492,
+    "title": "Find the square root of a perfect number",
+    "fn_name": "sqrt_root",
+    "ref_py": "import math\r\ndef sqrt_root(num):\r\n sqrt_root = math.pow(num, 0.5)\r\n return sqrt_root",
+    "test_cases": [
+      {
+        "input": {
+          "num": 4
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "num": 16
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "num": 400
+        },
+        "output": 20
+      }
+    ]
+  },
+  {
+    "id": 493,
+    "title": "Calculate volume of a tetrahedron",
+    "fn_name": "volume_tetrahedron",
+    "ref_py": "import math\r\ndef volume_tetrahedron(num):\r\n\tvolume = (num ** 3 / (6 * math.sqrt(2)))\t\r\n\treturn round(volume, 2)",
+    "test_cases": [
+      {
+        "input": {
+          "num": 10
+        },
+        "output": 117.85
+      },
+      {
+        "input": {
+          "num": 15
+        },
+        "output": 397.75
+      },
+      {
+        "input": {
+          "num": 20
+        },
+        "output": 942.81
+      }
+    ]
+  },
+  {
+    "id": 494,
+    "title": "Find the lcm of the given array elements",
+    "fn_name": "get_lcm",
+    "ref_py": "def find_lcm(num1, num2): \r\n\tif(num1>num2): \r\n\t\tnum = num1 \r\n\t\tden = num2 \r\n\telse: \r\n\t\tnum = num2 \r\n\t\tden = num1 \r\n\trem = num % den \r\n\twhile (rem != 0): \r\n\t\tnum = den \r\n\t\tden = rem \r\n\t\trem = num % den \r\n\tgcd = den \r\n\tlcm = int(int(num1 * num2)/int(gcd)) \r\n\treturn lcm \r\ndef get_lcm(l):\r\n  num1 = l[0]\r\n  num2 = l[1]\r\n  lcm = find_lcm(num1, num2)\r\n  for i in range(2, len(l)):\r\n    lcm = find_lcm(lcm, l[i])\r\n  return lcm",
+    "test_cases": [
+      {
+        "input": {
+          "l": [
+            2,
+            7,
+            3,
+            9,
+            4
+          ]
+        },
+        "output": 252
+      },
+      {
+        "input": {
+          "l": [
+            1,
+            2,
+            8,
+            3
+          ]
+        },
+        "output": 24
+      },
+      {
+        "input": {
+          "l": [
+            3,
+            8,
+            4,
+            10,
+            5
+          ]
+        },
+        "output": 120
+      }
+    ]
+  },
+  {
+    "id": 495,
+    "title": "Print check if the triangle is scalene or not",
+    "fn_name": "check_isosceles",
+    "ref_py": "def check_isosceles(x,y,z):\r\n  if x!=y & y!=z & z!=x:\r\n\t   return True\r\n  else:\r\n     return False",
+    "test_cases": [
+      {
+        "input": {
+          "x": 6,
+          "y": 8,
+          "z": 12
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "x": 6,
+          "y": 6,
+          "z": 12
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "x": 6,
+          "y": 15,
+          "z": 20
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 496,
+    "title": "Find the longest bitonic subsequence for the given array",
+    "fn_name": "lbs",
+    "ref_py": "def lbs(arr): \r\n\tn = len(arr) \r\n\tlis = [1 for i in range(n+1)] \r\n\tfor i in range(1 , n): \r\n\t\tfor j in range(0 , i): \r\n\t\t\tif ((arr[i] > arr[j]) and (lis[i] < lis[j] +1)): \r\n\t\t\t\tlis[i] = lis[j] + 1\r\n\tlds = [1 for i in range(n+1)] \r\n\tfor i in reversed(range(n-1)): \r\n\t\tfor j in reversed(range(i-1 ,n)): \r\n\t\t\tif(arr[i] > arr[j] and lds[i] < lds[j] + 1): \r\n\t\t\t\tlds[i] = lds[j] + 1\r\n\tmaximum = lis[0] + lds[0] - 1\r\n\tfor i in range(1 , n): \r\n\t\tmaximum = max((lis[i] + lds[i]-1), maximum) \r\n\treturn maximum",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            0,
+            8,
+            4,
+            12,
+            2,
+            10,
+            6,
+            14,
+            1,
+            9,
+            5,
+            13,
+            3,
+            11,
+            7,
+            15
+          ]
+        },
+        "output": 7
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            11,
+            2,
+            10,
+            4,
+            5,
+            2,
+            1
+          ]
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "arr": [
+            80,
+            60,
+            30,
+            40,
+            20,
+            10
+          ]
+        },
+        "output": 5
+      }
+    ]
+  },
+  {
+    "id": 497,
+    "title": "Check whether a given string has a capital letter, a lower case letter, a number",
+    "fn_name": "check_string",
+    "ref_py": "def check_string(str1):\r\n    messg = [\r\n    lambda str1: any(x.isupper() for x in str1) or 'String must have 1 upper case character.',\r\n    lambda str1: any(x.islower() for x in str1) or 'String must have 1 lower case character.',\r\n    lambda str1: any(x.isdigit() for x in str1) or 'String must have 1 number.',\r\n    lambda str1: len(str1) >= 7                 or 'String length should be atleast 8.',]\r\n    result = [x for x in [i(str1) for i in messg] if x != True]\r\n    if not result:\r\n        result.append('Valid string.')\r\n    return result",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "python"
+        },
+        "output": [
+          "String must have 1 upper case character.",
+          "String must have 1 number.",
+          "String length should be atleast 8."
+        ]
+      },
+      {
+        "input": {
+          "str1": "123python"
+        },
+        "output": [
+          "String must have 1 upper case character."
+        ]
+      },
+      {
+        "input": {
+          "str1": "123Python"
+        },
+        "output": [
+          "Valid string."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 498,
+    "title": "Find the sum of maximum increasing subsequence of the given array",
+    "fn_name": "max_sum_increasing_subsequence",
+    "ref_py": "def max_sum_increasing_subsequence(arr, n): \r\n\tmax = 0\r\n\tmsis = [0 for x in range(n)] \r\n\tfor i in range(n): \r\n\t\tmsis[i] = arr[i] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(i): \r\n\t\t\tif (arr[i] > arr[j] and\r\n\t\t\t\tmsis[i] < msis[j] + arr[i]): \r\n\t\t\t\tmsis[i] = msis[j] + arr[i] \r\n\tfor i in range(n): \r\n\t\tif max < msis[i]: \r\n\t\t\tmax = msis[i] \r\n\treturn max",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            101,
+            2,
+            3,
+            100,
+            4,
+            5
+          ],
+          "n": 7
+        },
+        "output": 106
+      },
+      {
+        "input": {
+          "arr": [
+            3,
+            4,
+            5,
+            10
+          ],
+          "n": 4
+        },
+        "output": 22
+      },
+      {
+        "input": {
+          "arr": [
+            10,
+            5,
+            4,
+            3
+          ],
+          "n": 4
+        },
+        "output": 10
+      }
+    ]
+  },
+  {
+    "id": 499,
+    "title": "Check whether two given lines are parallel or not",
+    "fn_name": "parallel_lines",
+    "ref_py": "def parallel_lines(line1, line2):\r\n  return line1[0]/line1[1] == line2[0]/line2[1]",
+    "test_cases": [
+      {
+        "input": {
+          "line1": [
+            2,
+            3,
+            4
+          ],
+          "line2": [
+            2,
+            3,
+            8
+          ]
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "line1": [
+            2,
+            3,
+            4
+          ],
+          "line2": [
+            4,
+            -3,
+            8
+          ]
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "line1": [
+            3,
+            3
+          ],
+          "line2": [
+            5,
+            5
+          ]
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 500,
+    "title": "Capitalize first and last letters of each word of a given string",
+    "fn_name": "capitalize_first_last_letters",
+    "ref_py": "def capitalize_first_last_letters(str1):\r\n     str1 = result = str1.title()\r\n     result =  \"\"\r\n     for word in str1.split():\r\n        result += word[:-1] + word[-1].upper() + \" \"\r\n     return result[:-1]",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "python"
+        },
+        "output": "PythoN"
+      },
+      {
+        "input": {
+          "str1": "bigdata"
+        },
+        "output": "BigdatA"
+      },
+      {
+        "input": {
+          "str1": "Hadoop"
+        },
+        "output": "HadooP"
+      }
+    ]
+  },
+  {
+    "id": 501,
+    "title": "Find all pairs in an integer array whose sum is equal to a given number",
+    "fn_name": "get_pairs_count",
+    "ref_py": "def get_pairs_count(arr, n, sum):\r\n    count = 0 \r\n    for i in range(0, n):\r\n        for j in range(i + 1, n):\r\n            if arr[i] + arr[j] == sum:\r\n                count += 1\r\n    return count",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            5,
+            7,
+            -1,
+            5
+          ],
+          "n": 5,
+          "sum": 6
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            5,
+            7,
+            -1
+          ],
+          "n": 4,
+          "sum": 6
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "n": 4,
+          "sum": 2
+        },
+        "output": 6
+      }
+    ]
+  },
+  {
+    "id": 502,
+    "title": "Find the nth jacobsthal-lucas number",
+    "fn_name": "jacobsthal_lucas",
+    "ref_py": "def jacobsthal_lucas(n): \r\n\tdp=[0] * (n + 1) \r\n\tdp[0] = 2\r\n\tdp[1] = 1\r\n\tfor i in range(2, n+1): \r\n\t\tdp[i] = dp[i - 1] + 2 * dp[i - 2]; \r\n\treturn dp[n]",
+    "test_cases": [
+      {
+        "input": {
+          "n": 5
+        },
+        "output": 31
+      },
+      {
+        "input": {
+          "n": 2
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "n": 4
+        },
+        "output": 17
+      }
+    ]
+  },
+  {
+    "id": 503,
+    "title": "Find the ration of negative numbers in an array of integers",
+    "fn_name": "negative_count",
+    "ref_py": "from array import array\r\ndef negative_count(nums):\r\n    n = len(nums)\r\n    n1 = 0\r\n    for x in nums:\r\n        if x < 0:\r\n            n1 += 1\r\n        else:\r\n          None\r\n    return round(n1/n,2)",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [
+            0,
+            1,
+            2,
+            -1,
+            -5,
+            6,
+            0,
+            -3,
+            -2,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        "output": 0.31
+      },
+      {
+        "input": {
+          "nums": [
+            2,
+            1,
+            2,
+            -1,
+            -5,
+            6,
+            4,
+            -3,
+            -2,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        "output": 0.31
+      },
+      {
+        "input": {
+          "nums": [
+            2,
+            4,
+            -6,
+            -9,
+            11,
+            -12,
+            14,
+            -5,
+            17
+          ]
+        },
+        "output": 0.44
+      }
+    ]
+  },
+  {
+    "id": 504,
+    "title": "Find minimum number of coins that make a given value",
+    "fn_name": "min_coins",
+    "ref_py": "import sys \r\ndef min_coins(coins, m, V): \r\n    if (V == 0): \r\n        return 0\r\n    res = sys.maxsize \r\n    for i in range(0, m): \r\n        if (coins[i] <= V): \r\n            sub_res = min_coins(coins, m, V-coins[i]) \r\n            if (sub_res != sys.maxsize and sub_res + 1 < res): \r\n                res = sub_res + 1  \r\n    return res",
+    "test_cases": [
+      {
+        "input": {
+          "coins": [
+            9,
+            6,
+            5,
+            1
+          ],
+          "m": 4,
+          "V": 11
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "coins": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "m": 6,
+          "V": 9
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "coins": [
+            1,
+            2,
+            3
+          ],
+          "m": 3,
+          "V": 4
+        },
+        "output": 2
+      }
+    ]
+  },
+  {
+    "id": 505,
+    "title": "Check if the two given strings are permutations of each other",
+    "fn_name": "check_permutation",
+    "ref_py": "def check_permutation(str1, str2):\r\n  n1=len(str1)\r\n  n2=len(str2)\r\n  if(n1!=n2):\r\n    return False\r\n  a=sorted(str1)\r\n  str1=\" \".join(a)\r\n  b=sorted(str2)\r\n  str2=\" \".join(b)\r\n  for i in range(0, n1, 1):\r\n    if(str1[i] != str2[i]):\r\n      return False\r\n  return True",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "abc",
+          "str2": "cba"
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "str1": "test",
+          "str2": "ttew"
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "str1": "xxyz",
+          "str2": "yxzx"
+        },
+        "output": true
+      }
+    ]
+  },
+  {
+    "id": 506,
+    "title": "Find the top or bottom surface area of a cylinder",
+    "fn_name": "topbottom_surfacearea",
+    "ref_py": "def topbottom_surfacearea(r):\r\n  toporbottomarea=3.1415*r*r\r\n  return toporbottomarea",
+    "test_cases": [
+      {
+        "input": {
+          "r": 10
+        },
+        "output": 314.15000000000003
+      },
+      {
+        "input": {
+          "r": 5
+        },
+        "output": 78.53750000000001
+      },
+      {
+        "input": {
+          "r": 4
+        },
+        "output": 50.264
+      }
+    ]
+  },
+  {
+    "id": 507,
+    "title": "Select the nth items of a list",
+    "fn_name": "nth_items",
+    "ref_py": "def nth_items(list,n):\r\n return list[::n]",
+    "test_cases": [
+      {
+        "input": {
+          "list": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "n": 2
+        },
+        "output": [
+          1,
+          3,
+          5,
+          7,
+          9
+        ]
+      },
+      {
+        "input": {
+          "list": [
+            10,
+            15,
+            19,
+            17,
+            16,
+            18
+          ],
+          "n": 3
+        },
+        "output": [
+          10,
+          17
+        ]
+      },
+      {
+        "input": {
+          "list": [
+            14,
+            16,
+            19,
+            15,
+            17
+          ],
+          "n": 4
+        },
+        "output": [
+          14,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "id": 508,
+    "title": "Find the first repeated word in a given string",
+    "fn_name": "first_repeated_word",
+    "ref_py": "def first_repeated_word(str1):\r\n  temp = set()\r\n  for word in str1.split():\r\n    if word in temp:\r\n      return word;\r\n    else:\r\n      temp.add(word)\r\n  return 'None'",
+    "test_cases": [
+      {
+        "input": {
+          "str1": "ab ca bc ab"
+        },
+        "output": "ab"
+      },
+      {
+        "input": {
+          "str1": "ab ca bc"
+        },
+        "output": "None"
+      },
+      {
+        "input": {
+          "str1": "ab ca bc ca ab bc"
+        },
+        "output": "ca"
+      }
+    ]
+  },
+  {
+    "id": 509,
+    "title": "Create a list containing the power of said number in bases raised to the corresp",
+    "fn_name": "basesnum_coresspondingnum",
+    "ref_py": "def basesnum_coresspondingnum(bases_num,index):\r\n  result = list(map(pow, bases_num, index))\r\n  return result",
+    "test_cases": [
+      {
+        "input": {
+          "bases_num": [
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100
+          ],
+          "index": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "output": [
+          10,
+          400,
+          27000,
+          2560000,
+          312500000,
+          46656000000,
+          8235430000000,
+          1677721600000000,
+          387420489000000000,
+          100000000000000000000
+        ]
+      },
+      {
+        "input": {
+          "bases_num": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "index": [
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70
+          ]
+        },
+        "output": [
+          1,
+          1048576,
+          205891132094649,
+          1208925819614629174706176,
+          88817841970012523233890533447265625,
+          48873677980689257489322752273774603865660850176,
+          143503601609868434285603076356671071740077383739246066639249
+        ]
+      },
+      {
+        "input": {
+          "bases_num": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "index": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ]
+        },
+        "output": [
+          64,
+          262144,
+          5159780352,
+          281474976710656,
+          32768000000000000000,
+          6979147079584381377970176,
+          2456510688823056210273111113728
+        ]
+      }
+    ]
+  },
+  {
+    "id": 510,
+    "title": "Find the difference between highest and least frequencies in a given array",
+    "fn_name": "find_Diff",
+    "ref_py": "def find_Diff(arr,n): \r\n    arr.sort()  \r\n    count = 0; max_count = 0; min_count = n \r\n    for i in range(0,(n-1)): \r\n        if arr[i] == arr[i + 1]: \r\n            count += 1\r\n            continue\r\n        else: \r\n            max_count = max(max_count,count) \r\n            min_count = min(min_count,count) \r\n            count = 0\r\n    return max_count - min_count",
+    "test_cases": [
+      {
+        "input": {
+          "arr": [
+            1,
+            1,
+            2,
+            2,
+            7,
+            8,
+            4,
+            5,
+            1,
+            4
+          ],
+          "n": 10
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            7,
+            9,
+            2,
+            3,
+            3,
+            1,
+            3,
+            3
+          ],
+          "n": 9
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "arr": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "n": 4
+        },
+        "output": 0
+      }
+    ]
+  }
+]

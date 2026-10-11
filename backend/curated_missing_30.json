@@ -1,0 +1,602 @@
+[
+  {
+    "id": 4,
+    "slug": "product-of-array-except-self",
+    "title": "Product of Array Except Self",
+    "starter_py": "def productExceptSelf(nums: list[int]) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def productExceptSelf(nums: list[int]) -> list[int]:\n    n = len(nums)\n    res = [1] * n\n    prefix = 1\n    for i in range(n):\n        res[i] = prefix\n        prefix *= nums[i]\n    postfix = 1\n    for i in range(n - 1, -1, -1):\n        res[i] *= postfix\n        postfix *= nums[i]\n    return res\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [1, 2, 3, 4]}",
+        "expected_output": "[24, 12, 8, 6]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [-1, 1, 0, -3, 3]}",
+        "expected_output": "[0, 0, 9, 0, 0]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "trapping-rain-water",
+    "title": "Trapping Rain Water",
+    "starter_py": "def trap(height: list[int]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def trap(height: list[int]) -> int:\n    if not height: return 0\n    l, r = 0, len(height) - 1\n    l_max, r_max = height[l], height[r]\n    res = 0\n    while l < r:\n        if l_max < r_max:\n            l += 1\n            l_max = max(l_max, height[l])\n            res += l_max - height[l]\n        else:\n            r -= 1\n            r_max = max(r_max, height[r])\n            res += r_max - height[r]\n    return res\n",
+    "test_cases": [
+      {
+        "input_data": "{\"height\": [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]}",
+        "expected_output": "6",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"height\": [4, 2, 0, 3, 2, 5]}",
+        "expected_output": "9",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "starter_py": "def lengthOfLongestSubstring(s: str) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def lengthOfLongestSubstring(s: str) -> int:\n    char_set = set()\n    l = 0\n    res = 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res\n",
+    "test_cases": [
+      {
+        "input_data": "{\"s\": \"abcabcbb\"}",
+        "expected_output": "3",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"s\": \"bbbbb\"}",
+        "expected_output": "1",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"s\": \"pwwkew\"}",
+        "expected_output": "3",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "group-anagrams",
+    "title": "Group Anagrams",
+    "starter_py": "def groupAnagrams(strs: list[str]) -> list[list[str]]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "from collections import defaultdict\ndef groupAnagrams(strs: list[str]) -> list[list[str]]:\n    ans = defaultdict(list)\n    for s in strs:\n        ans[\"\".join(sorted(s))].append(s)\n    return [sorted(group) for group in sorted(ans.values())]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"strs\": [\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]}",
+        "expected_output": "[[\"ate\", \"eat\", \"tea\"], [\"bat\"], [\"nat\", \"tan\"]]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"strs\": [\"\"]}",
+        "expected_output": "[[\"\"]]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "starter_py": "def containsDuplicate(nums: list[int]) -> bool:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def containsDuplicate(nums: list[int]) -> bool:\n    return len(nums) != len(set(nums))\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [1, 2, 3, 1]}",
+        "expected_output": "true",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [1, 2, 3, 4]}",
+        "expected_output": "false",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "top-k-frequent-elements",
+    "title": "Top K Frequent Elements",
+    "starter_py": "def topKFrequent(nums: list[int], k: int) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "from collections import Counter\ndef topKFrequent(nums: list[int], k: int) -> list[int]:\n    count = Counter(nums)\n    return sorted([item[0] for item in count.most_common(k)])\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [1, 1, 1, 2, 2, 3], \"k\": 2}",
+        "expected_output": "[1, 2]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [1], \"k\": 1}",
+        "expected_output": "[1]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "longest-consecutive-sequence",
+    "title": "Longest Consecutive Sequence",
+    "starter_py": "def longestConsecutive(nums: list[int]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def longestConsecutive(nums: list[int]) -> int:\n    num_set = set(nums)\n    longest = 0\n    for n in num_set:\n        if (n - 1) not in num_set:\n            length = 1\n            while (n + length) in num_set:\n                length += 1\n            longest = max(longest, length)\n    return longest\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [100, 4, 200, 1, 3, 2]}",
+        "expected_output": "4",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]}",
+        "expected_output": "9",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "slug": "reverse-linked-list",
+    "title": "Reverse Linked List",
+    "starter_py": "def reverseList(head: list[int]) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def reverseList(head: list[int]) -> list[int]:\n    return head[::-1]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"head\": [1, 2, 3, 4, 5]}",
+        "expected_output": "[5, 4, 3, 2, 1]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"head\": [1, 2]}",
+        "expected_output": "[2, 1]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"head\": []}",
+        "expected_output": "[]",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "starter_py": "def mergeTwoLists(list1: list[int], list2: list[int]) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def mergeTwoLists(list1: list[int], list2: list[int]) -> list[int]:\n    return sorted(list1 + list2)\n",
+    "test_cases": [
+      {
+        "input_data": "{\"list1\": [1, 2, 4], \"list2\": [1, 3, 4]}",
+        "expected_output": "[1, 1, 2, 3, 4, 4]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"list1\": [], \"list2\": []}",
+        "expected_output": "[]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "slug": "remove-nth-node-from-end-of-list",
+    "title": "Remove Nth Node From End of List",
+    "starter_py": "def removeNthFromEnd(head: list[int], n: int) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def removeNthFromEnd(head: list[int], n: int) -> list[int]:\n    idx = len(head) - n\n    return head[:idx] + head[idx+1:]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"head\": [1, 2, 3, 4, 5], \"n\": 2}",
+        "expected_output": "[1, 2, 3, 5]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"head\": [1], \"n\": 1}",
+        "expected_output": "[]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "slug": "valid-parentheses",
+    "title": "Valid Parentheses String",
+    "starter_py": "def isValid(s: str) -> bool:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def isValid(s: str) -> bool:\n    stack = []\n    mapping = {')': '(', '}': '{', ']': '['}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack\n",
+    "test_cases": [
+      {
+        "input_data": "{\"s\": \"()[]{}\"}",
+        "expected_output": "true",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"s\": \"(]\"}",
+        "expected_output": "false",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"s\": \"([{}])\"}",
+        "expected_output": "true",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "slug": "daily-temperatures",
+    "title": "Daily Temperatures Next Warmer Day",
+    "starter_py": "def dailyTemperatures(temperatures: list[int]) -> list[int]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def dailyTemperatures(temperatures: list[int]) -> list[int]:\n    res = [0] * len(temperatures)\n    stack = [] # (temp, idx)\n    for i, t in enumerate(temperatures):\n        while stack and t > stack[-1][0]:\n            _, prev_i = stack.pop()\n            res[prev_i] = i - prev_i\n        stack.append((t, i))\n    return res\n",
+    "test_cases": [
+      {
+        "input_data": "{\"temperatures\": [73, 74, 75, 71, 69, 72, 76, 73]}",
+        "expected_output": "[1, 1, 4, 2, 1, 1, 0, 0]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"temperatures\": [30, 40, 50, 60]}",
+        "expected_output": "[1, 1, 1, 0]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "slug": "largest-rectangle-in-histogram",
+    "title": "Largest Rectangle in Histogram",
+    "starter_py": "def largestRectangleArea(heights: list[int]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def largestRectangleArea(heights: list[int]) -> int:\n    max_area = 0\n    stack = [] # (index, height)\n    for i, h in enumerate(heights):\n        start = i\n        while stack and stack[-1][1] > h:\n            idx, height = stack.pop()\n            max_area = max(max_area, height * (i - idx))\n            start = idx\n        stack.append((start, h))\n    for i, h in stack:\n        max_area = max(max_area, h * (len(heights) - i))\n    return max_area\n",
+    "test_cases": [
+      {
+        "input_data": "{\"heights\": [2, 1, 5, 6, 2, 3]}",
+        "expected_output": "10",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"heights\": [2, 4]}",
+        "expected_output": "4",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "invert-binary-tree",
+    "title": "Invert Binary Tree",
+    "starter_py": "def invertTree(root: list) -> list:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def invertTree(root: list) -> list:\n    if not root: return []\n    res = list(root)\n    n = len(res)\n    level = 1\n    idx = 0\n    while idx < n:\n        end = min(idx + (1 << (level - 1)), n)\n        sub = res[idx:end]\n        res[idx:end] = sub[::-1]\n        idx = end\n        level += 1\n    return res\n",
+    "test_cases": [
+      {
+        "input_data": "{\"root\": [4, 2, 7, 1, 3, 6, 9]}",
+        "expected_output": "[4, 7, 2, 9, 6, 3, 1]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"root\": [2, 1, 3]}",
+        "expected_output": "[2, 3, 1]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "lowest-common-ancestor-of-bst",
+    "title": "Lowest Common Ancestor of a BST",
+    "starter_py": "def lowestCommonAncestor(root: list, p: int, q: int) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def lowestCommonAncestor(root: list, p: int, q: int) -> int:\n    curr = 0\n    while curr < len(root) and root[curr] is not None:\n        val = root[curr]\n        if p > val and q > val:\n            curr = 2 * curr + 2\n        elif p < val and q < val:\n            curr = 2 * curr + 1\n        else:\n            return val\n    return root[0]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"root\": [6, 2, 8, 0, 4, 7, 9], \"p\": 2, \"q\": 8}",
+        "expected_output": "6",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"root\": [6, 2, 8, 0, 4, 7, 9], \"p\": 2, \"q\": 4}",
+        "expected_output": "2",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "starter_py": "def isValidBST(root: list) -> bool:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def isValidBST(root: list) -> bool:\n    def helper(idx, low, high):\n        if idx >= len(root) or root[idx] is None: return True\n        val = root[idx]\n        if val <= low or val >= high: return False\n        return helper(2 * idx + 1, low, val) and helper(2 * idx + 2, val, high)\n    return helper(0, float('-inf'), float('inf'))\n",
+    "test_cases": [
+      {
+        "input_data": "{\"root\": [2, 1, 3]}",
+        "expected_output": "true",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"root\": [5, 1, 4, null, null, 3, 6]}",
+        "expected_output": "false",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "starter_py": "def maxPathSum(root: list) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def maxPathSum(root: list) -> int:\n    max_sum = [float('-inf')]\n    def helper(idx):\n        if idx >= len(root) or root[idx] is None: return 0\n        left = max(0, helper(2 * idx + 1))\n        right = max(0, helper(2 * idx + 2))\n        max_sum[0] = max(max_sum[0], root[idx] + left + right)\n        return root[idx] + max(left, right)\n    helper(0)\n    return max_sum[0]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"root\": [1, 2, 3]}",
+        "expected_output": "6",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"root\": [-10, 9, 20, null, null, 15, 7]}",
+        "expected_output": "42",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "starter_py": "def cloneGraph(adjList: list[list[int]]) -> list[list[int]]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def cloneGraph(adjList: list[list[int]]) -> list[list[int]]:\n    return [list(neighbors) for neighbors in adjList]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"adjList\": [[2,4],[1,3],[2,4],[1,3]]}",
+        "expected_output": "[[2, 4], [1, 3], [2, 4], [1, 3]]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"adjList\": [[]]}",
+        "expected_output": "[[]]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "course-schedule",
+    "title": "Course Schedule Cycle Detection",
+    "starter_py": "def canFinish(numCourses: int, prerequisites: list[list[int]]) -> bool:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def canFinish(numCourses: int, prerequisites: list[list[int]]) -> bool:\n    preMap = {i: [] for i in range(numCourses)}\n    for crs, pre in prerequisites:\n        preMap[crs].append(pre)\n    visiting = set()\n    visited = set()\n    def dfs(crs):\n        if crs in visiting: return False\n        if crs in visited: return True\n        visiting.add(crs)\n        for pre in preMap[crs]:\n            if not dfs(pre): return False\n        visiting.remove(crs)\n        visited.add(crs)\n        return True\n    for c in range(numCourses):\n        if not dfs(c): return False\n    return True\n",
+    "test_cases": [
+      {
+        "input_data": "{\"numCourses\": 2, \"prerequisites\": [[1, 0]]}",
+        "expected_output": "true",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"numCourses\": 2, \"prerequisites\": [[1, 0], [0, 1]]}",
+        "expected_output": "false",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "word-ladder",
+    "title": "Word Ladder Shortest Transformation",
+    "starter_py": "def ladderLength(beginWord: str, endWord: str, wordList: list[str]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "from collections import deque\ndef ladderLength(beginWord: str, endWord: str, wordList: list[str]) -> int:\n    words = set(wordList)\n    if endWord not in words: return 0\n    queue = deque([(beginWord, 1)])\n    visited = {beginWord}\n    while queue:\n        word, dist = queue.popleft()\n        if word == endWord: return dist\n        for i in range(len(word)):\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                next_word = word[:i] + c + word[i+1:]\n                if next_word in words and next_word not in visited:\n                    visited.add(next_word)\n                    queue.append((next_word, dist + 1))\n    return 0\n",
+    "test_cases": [
+      {
+        "input_data": "{\"beginWord\": \"hit\", \"endWord\": \"cog\", \"wordList\": [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]}",
+        "expected_output": "5",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"beginWord\": \"hit\", \"endWord\": \"cog\", \"wordList\": [\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]}",
+        "expected_output": "0",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "jump-game",
+    "title": "Jump Game Can Reach End",
+    "starter_py": "def canJump(nums: list[int]) -> bool:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def canJump(nums: list[int]) -> bool:\n    goal = len(nums) - 1\n    for i in range(len(nums) - 1, -1, -1):\n        if i + nums[i] >= goal:\n            goal = i\n    return goal == 0\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [2, 3, 1, 1, 4]}",
+        "expected_output": "true",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [3, 2, 1, 0, 4]}",
+        "expected_output": "false",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "gas-station",
+    "title": "Gas Station Circuit",
+    "starter_py": "def canCompleteCircuit(gas: list[int], cost: list[int]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def canCompleteCircuit(gas: list[int], cost: list[int]) -> int:\n    if sum(gas) < sum(cost): return -1\n    total = 0\n    start = 0\n    for i in range(len(gas)):\n        total += gas[i] - cost[i]\n        if total < 0:\n            total = 0\n            start = i + 1\n    return start\n",
+    "test_cases": [
+      {
+        "input_data": "{\"gas\": [1, 2, 3, 4, 5], \"cost\": [3, 4, 5, 1, 2]}",
+        "expected_output": "3",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"gas\": [2, 3, 4], \"cost\": [3, 4, 3]}",
+        "expected_output": "-1",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "slug": "task-scheduler",
+    "title": "Task Scheduler Minimum Intervals",
+    "starter_py": "def leastInterval(tasks: list[str], n: int) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "from collections import Counter\ndef leastInterval(tasks: list[str], n: int) -> int:\n    counts = Counter(tasks)\n    max_count = max(counts.values())\n    num_max = sum(1 for v in counts.values() if v == max_count)\n    return max(len(tasks), (max_count - 1) * (n + 1) + num_max)\n",
+    "test_cases": [
+      {
+        "input_data": "{\"tasks\": [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], \"n\": 2}",
+        "expected_output": "8",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"tasks\": [\"A\",\"C\",\"A\",\"B\",\"D\",\"B\"], \"n\": 1}",
+        "expected_output": "6",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "slug": "coin-change",
+    "title": "Coin Change Minimum Count",
+    "starter_py": "def coinChange(coins: list[int], amount: int) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def coinChange(coins: list[int], amount: int) -> int:\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for a in range(1, amount + 1):\n        for c in coins:\n            if a - c >= 0:\n                dp[a] = min(dp[a], 1 + dp[a - c])\n    return dp[amount] if dp[amount] != float('inf') else -1\n",
+    "test_cases": [
+      {
+        "input_data": "{\"coins\": [1, 2, 5], \"amount\": 11}",
+        "expected_output": "3",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"coins\": [2], \"amount\": 3}",
+        "expected_output": "-1",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"coins\": [1], \"amount\": 0}",
+        "expected_output": "0",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest Increasing Subsequence",
+    "starter_py": "def lengthOfLIS(nums: list[int]) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "import bisect\ndef lengthOfLIS(nums: list[int]) -> int:\n    tails = []\n    for x in nums:\n        idx = bisect.bisect_left(tails, x)\n        if idx == len(tails):\n            tails.append(x)\n        else:\n            tails[idx] = x\n    return len(tails)\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [10, 9, 2, 5, 3, 7, 101, 18]}",
+        "expected_output": "4",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [0, 1, 0, 3, 2, 3]}",
+        "expected_output": "4",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [7, 7, 7, 7, 7]}",
+        "expected_output": "1",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "slug": "unique-paths",
+    "title": "Unique Paths Grid Combinations",
+    "starter_py": "def uniquePaths(m: int, n: int) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "import math\ndef uniquePaths(m: int, n: int) -> int:\n    return math.comb(m + n - 2, m - 1)\n",
+    "test_cases": [
+      {
+        "input_data": "{\"m\": 3, \"n\": 7}",
+        "expected_output": "28",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"m\": 3, \"n\": 2}",
+        "expected_output": "3",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "slug": "edit-distance",
+    "title": "Edit Distance Levenshtein Transformation",
+    "starter_py": "def minDistance(word1: str, word2: str) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def minDistance(word1: str, word2: str) -> int:\n    m, n = len(word1), len(word2)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1): dp[i][0] = i\n    for j in range(n + 1): dp[0][j] = j\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if word1[i-1] == word2[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n            else:\n                dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])\n    return dp[m][n]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"word1\": \"horse\", \"word2\": \"ros\"}",
+        "expected_output": "3",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"word1\": \"intention\", \"word2\": \"execution\"}",
+        "expected_output": "5",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "slug": "subsets",
+    "title": "Subsets Power Set Generation",
+    "starter_py": "def subsets(nums: list[int]) -> list[list[int]]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def subsets(nums: list[int]) -> list[list[int]]:\n    res = []\n    nums.sort()\n    def backtrack(start, path):\n        res.append(list(path))\n        for i in range(start, len(nums)):\n            path.append(nums[i])\n            backtrack(i + 1, path)\n            path.pop()\n    backtrack(0, [])\n    return sorted(res)\n",
+    "test_cases": [
+      {
+        "input_data": "{\"nums\": [1, 2, 3]}",
+        "expected_output": "[[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"nums\": [0]}",
+        "expected_output": "[[], [0]]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "slug": "combination-sum",
+    "title": "Combination Sum Target",
+    "starter_py": "def combinationSum(candidates: list[int], target: int) -> list[list[int]]:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def combinationSum(candidates: list[int], target: int) -> list[list[int]]:\n    res = []\n    def backtrack(remain, combo, start):\n        if remain == 0:\n            res.append(list(combo))\n            return\n        if remain < 0: return\n        for i in range(start, len(candidates)):\n            combo.append(candidates[i])\n            backtrack(remain - candidates[i], combo, i)\n            combo.pop()\n    backtrack(target, [], 0)\n    return sorted([sorted(x) for x in res])\n",
+    "test_cases": [
+      {
+        "input_data": "{\"candidates\": [2, 3, 6, 7], \"target\": 7}",
+        "expected_output": "[[2, 2, 3], [7]]",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"candidates\": [2, 3, 5], \"target\": 8}",
+        "expected_output": "[[2, 2, 2, 2], [2, 3, 3], [3, 5]]",
+        "is_hidden": false
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "slug": "n-queens",
+    "title": "N-Queens Puzzle Solver",
+    "starter_py": "def totalNQueens(n: int) -> int:\n    # Write your solution here\n    pass\n",
+    "ref_py": "def totalNQueens(n: int) -> int:\n    cols, pos_diag, neg_diag = set(), set(), set()\n    res = [0]\n    def backtrack(r):\n        if r == n:\n            res[0] += 1\n            return\n        for c in range(n):\n            if c in cols or (r + c) in pos_diag or (r - c) in neg_diag: continue\n            cols.add(c)\n            pos_diag.add(r + c)\n            neg_diag.add(r - c)\n            backtrack(r + 1)\n            cols.remove(c)\n            pos_diag.remove(r + c)\n            neg_diag.remove(r - c)\n    backtrack(0)\n    return res[0]\n",
+    "test_cases": [
+      {
+        "input_data": "{\"n\": 4}",
+        "expected_output": "2",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"n\": 1}",
+        "expected_output": "1",
+        "is_hidden": false
+      },
+      {
+        "input_data": "{\"n\": 8}",
+        "expected_output": "92",
+        "is_hidden": true
+      }
+    ]
+  }
+]

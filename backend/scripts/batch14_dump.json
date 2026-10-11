@@ -1,0 +1,2701 @@
+[
+  {
+    "id": 711,
+    "slug": "mbpp-767-count-the-number-of-pairs-whose-sum-is-equal-to-sum",
+    "title": "Count the number of pairs whose sum is equal to \u2018sum\u2019",
+    "fn_name": "get_Pairs_Count",
+    "ref_py": "def get_Pairs_Count(arr,n,sum):\r\n    count = 0  \r\n    for i in range(0,n):\r\n        for j in range(i + 1,n):\r\n            if arr[i] + arr[j] == sum:\r\n                count += 1\r\n    return count",
+    "starter_py": "def get_Pairs_Count(arr, n, sum):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2106,
+        "input": {
+          "arr": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "n": 4,
+          "sum": 2
+        },
+        "output": 6,
+        "is_hidden": false
+      },
+      {
+        "id": 2107,
+        "input": {
+          "arr": [
+            1,
+            5,
+            7,
+            -1,
+            5
+          ],
+          "n": 5,
+          "sum": 6
+        },
+        "output": 3,
+        "is_hidden": true
+      },
+      {
+        "id": 2108,
+        "input": {
+          "arr": [
+            1,
+            -2,
+            3
+          ],
+          "n": 3,
+          "sum": 1
+        },
+        "output": 1,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 712,
+    "slug": "mbpp-768-check-for-odd-parity-of-a-given-number",
+    "title": "Check for odd parity of a given number",
+    "fn_name": "check_Odd_Parity",
+    "ref_py": "def check_Odd_Parity(x): \r\n    parity = 0\r\n    while (x != 0): \r\n        x = x & (x - 1) \r\n        parity += 1\r\n    if (parity % 2 == 1): \r\n        return True\r\n    else: \r\n        return False",
+    "starter_py": "def check_Odd_Parity(x):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2109,
+        "input": {
+          "x": 13
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2110,
+        "input": {
+          "x": 21
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2111,
+        "input": {
+          "x": 18
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 713,
+    "slug": "mbpp-769-get-the-difference-between-two-lists",
+    "title": "Get the difference between two lists",
+    "fn_name": "Diff",
+    "ref_py": "def Diff(li1,li2):\r\n    return (list(list(set(li1)-set(li2)) + list(set(li2)-set(li1))))",
+    "starter_py": "def Diff(li1, li2):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2112,
+        "input": {
+          "li1": [
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40
+          ],
+          "li2": [
+            25,
+            40,
+            35
+          ]
+        },
+        "output": [
+          10,
+          20,
+          30,
+          15
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2113,
+        "input": {
+          "li1": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "li2": [
+            6,
+            7,
+            1
+          ]
+        },
+        "output": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2114,
+        "input": {
+          "li1": [
+            1,
+            2,
+            3
+          ],
+          "li2": [
+            6,
+            7,
+            1
+          ]
+        },
+        "output": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 714,
+    "slug": "mbpp-770-find-the-sum-of-fourth-power-of-first-n-odd-natural-numbers",
+    "title": "Find the sum of fourth power of first n odd natural numbers",
+    "fn_name": "odd_Num_Sum",
+    "ref_py": "def odd_Num_Sum(n) : \r\n    j = 0\r\n    sm = 0\r\n    for i in range(1,n + 1) : \r\n        j = (2*i-1) \r\n        sm = sm + (j*j*j*j)   \r\n    return sm",
+    "starter_py": "def odd_Num_Sum(n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2115,
+        "input": {
+          "n": 2
+        },
+        "output": 82,
+        "is_hidden": false
+      },
+      {
+        "id": 2116,
+        "input": {
+          "n": 3
+        },
+        "output": 707,
+        "is_hidden": true
+      },
+      {
+        "id": 2117,
+        "input": {
+          "n": 4
+        },
+        "output": 3108,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 715,
+    "slug": "mbpp-771-check-if-the-given-expression-is-balanced-or-not",
+    "title": "Check if the given expression is balanced or not",
+    "fn_name": "check_expression",
+    "ref_py": "from collections import deque\r\ndef check_expression(exp):\r\n    if len(exp) & 1:\r\n        return False\r\n    stack = deque()\r\n    for ch in exp:\r\n        if ch == '(' or ch == '{' or ch == '[':\r\n            stack.append(ch)\r\n        if ch == ')' or ch == '}' or ch == ']':\r\n            if not stack:\r\n                return False\r\n            top = stack.pop()\r\n            if (top == '(' and ch != ')') or (top == '{' and ch != '}' or (top == '[' and ch != ']')):\r\n                return False\r\n    return not stack",
+    "starter_py": "def check_expression(exp):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2118,
+        "input": {
+          "exp": "{()}[{}]"
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2119,
+        "input": {
+          "exp": "{()}[{]"
+        },
+        "output": false,
+        "is_hidden": true
+      },
+      {
+        "id": 2120,
+        "input": {
+          "exp": "{()}[{}][]({})"
+        },
+        "output": true,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 716,
+    "slug": "mbpp-772-remove-all-the-words-with-k-length-in-the-given-string",
+    "title": "Remove all the words with k length in the given string",
+    "fn_name": "remove_length",
+    "ref_py": "def remove_length(test_str, K):\r\n  temp = test_str.split()\r\n  res = [ele for ele in temp if len(ele) != K]\r\n  res = ' '.join(res)\r\n  return (res)",
+    "starter_py": "def remove_length(test_str, K):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2121,
+        "input": {
+          "test_str": "The person is most value tet",
+          "K": 3
+        },
+        "output": "person is most value",
+        "is_hidden": false
+      },
+      {
+        "id": 2122,
+        "input": {
+          "test_str": "If you told me about this ok",
+          "K": 4
+        },
+        "output": "If you me about ok",
+        "is_hidden": true
+      },
+      {
+        "id": 2123,
+        "input": {
+          "test_str": "Forces of darkeness is come into the play",
+          "K": 4
+        },
+        "output": "Forces of darkeness is the",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 717,
+    "slug": "mbpp-774-check-if-the-string-is-a-valid-email-address-or-not-using-regex",
+    "title": "Check if the string is a valid email address or not using regex",
+    "fn_name": "check_email",
+    "ref_py": "import re \r\nregex = '^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$'\r\ndef check_email(email): \r\n\tif(re.search(regex,email)): \r\n\t\treturn (\"Valid Email\") \r\n\telse: \r\n\t\treturn (\"Invalid Email\")",
+    "starter_py": "def check_email(email):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2124,
+        "input": {
+          "email": "ankitrai326@gmail.com"
+        },
+        "output": "Valid Email",
+        "is_hidden": false
+      },
+      {
+        "id": 2125,
+        "input": {
+          "email": "my.ownsite@ourearth.org"
+        },
+        "output": "Valid Email",
+        "is_hidden": true
+      },
+      {
+        "id": 2126,
+        "input": {
+          "email": "ankitaoie326.com"
+        },
+        "output": "Invalid Email",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 718,
+    "slug": "mbpp-775-check-whether-every-odd-index-contains-odd-numbers-of-a-given-list",
+    "title": "Check whether every odd index contains odd numbers of a given list",
+    "fn_name": "odd_position",
+    "ref_py": "def odd_position(nums):\r\n\treturn all(nums[i]%2==i%2 for i in range(len(nums)))",
+    "starter_py": "def odd_position(nums):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2127,
+        "input": {
+          "nums": [
+            2,
+            1,
+            4,
+            3,
+            6,
+            7,
+            6,
+            3
+          ]
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2128,
+        "input": {
+          "nums": [
+            4,
+            1,
+            2
+          ]
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2129,
+        "input": {
+          "nums": [
+            1,
+            2,
+            3
+          ]
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 719,
+    "slug": "mbpp-776-count-those-characters-which-have-vowels-as-their-neighbors-in-the-given-string",
+    "title": "Count those characters which have vowels as their neighbors in the given string",
+    "fn_name": "count_vowels",
+    "ref_py": "def count_vowels(test_str):\r\n  res = 0\r\n  vow_list = ['a', 'e', 'i', 'o', 'u']\r\n  for idx in range(1, len(test_str) - 1):\r\n    if test_str[idx] not in vow_list and (test_str[idx - 1] in vow_list or test_str[idx + 1] in vow_list):\r\n      res += 1\r\n  if test_str[0] not in vow_list and test_str[1] in vow_list:\r\n    res += 1\r\n  if test_str[-1] not in vow_list and test_str[-2] in vow_list:\r\n    res += 1\r\n  return (res)",
+    "starter_py": "def count_vowels(test_str):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2130,
+        "input": {
+          "test_str": "bestinstareels"
+        },
+        "output": 7,
+        "is_hidden": false
+      },
+      {
+        "id": 2131,
+        "input": {
+          "test_str": "partofthejourneyistheend"
+        },
+        "output": 12,
+        "is_hidden": true
+      },
+      {
+        "id": 2132,
+        "input": {
+          "test_str": "amazonprime"
+        },
+        "output": 5,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 720,
+    "slug": "mbpp-777-find-the-sum-of-non-repeated-elements-in-a-given-array",
+    "title": "Find the sum of non-repeated elements in a given array",
+    "fn_name": "find_Sum",
+    "ref_py": "def find_Sum(arr,n): \r\n    arr.sort() \r\n    sum = arr[0] \r\n    for i in range(0,n-1): \r\n        if (arr[i] != arr[i+1]): \r\n            sum = sum + arr[i+1]   \r\n    return sum",
+    "starter_py": "def find_Sum(arr, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2133,
+        "input": {
+          "arr": [
+            1,
+            2,
+            3,
+            1,
+            1,
+            4,
+            5,
+            6
+          ],
+          "n": 8
+        },
+        "output": 21,
+        "is_hidden": false
+      },
+      {
+        "id": 2134,
+        "input": {
+          "arr": [
+            1,
+            10,
+            9,
+            4,
+            2,
+            10,
+            10,
+            45,
+            4
+          ],
+          "n": 9
+        },
+        "output": 71,
+        "is_hidden": true
+      },
+      {
+        "id": 2135,
+        "input": {
+          "arr": [
+            12,
+            10,
+            9,
+            45,
+            2,
+            10,
+            10,
+            45,
+            10
+          ],
+          "n": 9
+        },
+        "output": 78,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 721,
+    "slug": "mbpp-778-pack-consecutive-duplicates-of-a-given-list-elements-into-sublists",
+    "title": "Pack consecutive duplicates of a given list elements into sublists",
+    "fn_name": "pack_consecutive_duplicates",
+    "ref_py": "from itertools import groupby\r\ndef pack_consecutive_duplicates(list1):\r\n    return [list(group) for key, group in groupby(list1)]",
+    "starter_py": "def pack_consecutive_duplicates(list1):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2136,
+        "input": {
+          "list1": [
+            0,
+            0,
+            1,
+            2,
+            3,
+            4,
+            4,
+            5,
+            6,
+            6,
+            6,
+            7,
+            8,
+            9,
+            4,
+            4
+          ]
+        },
+        "output": [
+          [
+            0,
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            6,
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2137,
+        "input": {
+          "list1": [
+            10,
+            10,
+            15,
+            19,
+            18,
+            18,
+            17,
+            26,
+            26,
+            17,
+            18,
+            10
+          ]
+        },
+        "output": [
+          [
+            10,
+            10
+          ],
+          [
+            15
+          ],
+          [
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            10
+          ]
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2138,
+        "input": {
+          "list1": [
+            "a",
+            "a",
+            "b",
+            "c",
+            "d",
+            "d"
+          ]
+        },
+        "output": [
+          [
+            "a",
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d",
+            "d"
+          ]
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 722,
+    "slug": "mbpp-781-check-whether-the-count-of-divisors-is-even-or-odd",
+    "title": "Check whether the count of divisors is even or odd",
+    "fn_name": "count_Divisors",
+    "ref_py": "import math \r\ndef count_Divisors(n) : \r\n    count = 0\r\n    for i in range(1, (int)(math.sqrt(n)) + 2) : \r\n        if (n % i == 0) : \r\n            if( n // i == i) : \r\n                count = count + 1\r\n            else : \r\n                count = count + 2\r\n    if (count % 2 == 0) : \r\n        return (\"Even\") \r\n    else : \r\n        return (\"Odd\")",
+    "starter_py": "def count_Divisors(n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2139,
+        "input": {
+          "n": 10
+        },
+        "output": "Even",
+        "is_hidden": false
+      },
+      {
+        "id": 2140,
+        "input": {
+          "n": 100
+        },
+        "output": "Odd",
+        "is_hidden": true
+      },
+      {
+        "id": 2141,
+        "input": {
+          "n": 125
+        },
+        "output": "Even",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 723,
+    "slug": "mbpp-782-find-the-sum-of-all-odd-length-subarrays",
+    "title": "Find the sum of all odd length subarrays",
+    "fn_name": "Odd_Length_Sum",
+    "ref_py": "def Odd_Length_Sum(arr):\r\n    Sum = 0\r\n    l = len(arr)\r\n    for i in range(l):\r\n        Sum += ((((i + 1) *(l - i) + 1) // 2) * arr[i])\r\n    return Sum",
+    "starter_py": "def Odd_Length_Sum(arr):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2142,
+        "input": {
+          "arr": [
+            1,
+            2,
+            4
+          ]
+        },
+        "output": 14,
+        "is_hidden": false
+      },
+      {
+        "id": 2143,
+        "input": {
+          "arr": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "output": 15,
+        "is_hidden": true
+      },
+      {
+        "id": 2144,
+        "input": {
+          "arr": [
+            1,
+            7
+          ]
+        },
+        "output": 8,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 724,
+    "slug": "mbpp-784-find-the-product-of-first-even-and-odd-number-of-a-given-list",
+    "title": "Find the product of first even and odd number of a given list",
+    "fn_name": "mul_even_odd",
+    "ref_py": "def mul_even_odd(list1):\r\n    first_even = next((el for el in list1 if el%2==0),-1)\r\n    first_odd = next((el for el in list1 if el%2!=0),-1)\r\n    return (first_even*first_odd)",
+    "starter_py": "def mul_even_odd(list1):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2145,
+        "input": {
+          "list1": [
+            1,
+            3,
+            5,
+            7,
+            4,
+            1,
+            6,
+            8
+          ]
+        },
+        "output": 4,
+        "is_hidden": false
+      },
+      {
+        "id": 2146,
+        "input": {
+          "list1": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "output": 2,
+        "is_hidden": true
+      },
+      {
+        "id": 2147,
+        "input": {
+          "list1": [
+            1,
+            5,
+            7,
+            9,
+            10
+          ]
+        },
+        "output": 10,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 725,
+    "slug": "mbpp-786-locate-the-right-insertion-point-for-a-specified-value-in-sorted-order",
+    "title": "Locate the right insertion point for a specified value in sorted order",
+    "fn_name": "right_insertion",
+    "ref_py": "import bisect\r\ndef right_insertion(a, x):\r\n    i = bisect.bisect_right(a, x)\r\n    return i",
+    "starter_py": "def right_insertion(a, x):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2148,
+        "input": {
+          "a": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "x": 6
+        },
+        "output": 4,
+        "is_hidden": false
+      },
+      {
+        "id": 2149,
+        "input": {
+          "a": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "x": 3
+        },
+        "output": 2,
+        "is_hidden": true
+      },
+      {
+        "id": 2150,
+        "input": {
+          "a": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "x": 7
+        },
+        "output": 4,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 726,
+    "slug": "mbpp-787-write-a-function-that-matches-a-string-that-has-an-a-followed-by-three-b",
+    "title": "Write a function that matches a string that has an a followed by three 'b'",
+    "fn_name": "text_match_three",
+    "ref_py": "import re\r\ndef text_match_three(text):\r\n        patterns = 'ab{3}?'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "starter_py": "def text_match_three(text):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2151,
+        "input": {
+          "text": "ac"
+        },
+        "output": "Not matched!",
+        "is_hidden": false
+      },
+      {
+        "id": 2152,
+        "input": {
+          "text": "dc"
+        },
+        "output": "Not matched!",
+        "is_hidden": true
+      },
+      {
+        "id": 2153,
+        "input": {
+          "text": "abbbba"
+        },
+        "output": "Found a match!",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 727,
+    "slug": "mbpp-789-calculate-the-perimeter-of-a-regular-polygon",
+    "title": "Calculate the perimeter of a regular polygon",
+    "fn_name": "perimeter_polygon",
+    "ref_py": "from math import tan, pi\r\ndef perimeter_polygon(s,l):\r\n  perimeter = s*l\r\n  return perimeter",
+    "starter_py": "def perimeter_polygon(s, l):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2154,
+        "input": {
+          "s": 4,
+          "l": 20
+        },
+        "output": 80,
+        "is_hidden": false
+      },
+      {
+        "id": 2155,
+        "input": {
+          "s": 10,
+          "l": 15
+        },
+        "output": 150,
+        "is_hidden": true
+      },
+      {
+        "id": 2156,
+        "input": {
+          "s": 9,
+          "l": 7
+        },
+        "output": 63,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 728,
+    "slug": "mbpp-790-check-whether-every-even-index-contains-even-numbers-of-a-given-list",
+    "title": "Check whether every even index contains even numbers of a given list",
+    "fn_name": "even_position",
+    "ref_py": "def even_position(nums):\r\n\treturn all(nums[i]%2==i%2 for i in range(len(nums)))",
+    "starter_py": "def even_position(nums):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2157,
+        "input": {
+          "nums": [
+            3,
+            2,
+            1
+          ]
+        },
+        "output": false,
+        "is_hidden": false
+      },
+      {
+        "id": 2158,
+        "input": {
+          "nums": [
+            1,
+            2,
+            3
+          ]
+        },
+        "output": false,
+        "is_hidden": true
+      },
+      {
+        "id": 2159,
+        "input": {
+          "nums": [
+            2,
+            1,
+            4
+          ]
+        },
+        "output": true,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 729,
+    "slug": "mbpp-792-count-the-number-of-lists-in-a-given-number-of-lists",
+    "title": "Count the number of lists in a given number of lists",
+    "fn_name": "count_list",
+    "ref_py": "def count_list(input_list): \r\n    return len(input_list)",
+    "starter_py": "def count_list(input_list):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2160,
+        "input": {
+          "input_list": [
+            [
+              1,
+              3
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              13,
+              15,
+              17
+            ]
+          ]
+        },
+        "output": 4,
+        "is_hidden": false
+      },
+      {
+        "id": 2161,
+        "input": {
+          "input_list": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        "output": 3,
+        "is_hidden": true
+      },
+      {
+        "id": 2162,
+        "input": {
+          "input_list": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        "output": 2,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 730,
+    "slug": "mbpp-793-find-the-last-position-of-an-element-in-a-sorted-array",
+    "title": "Find the last position of an element in a sorted array",
+    "fn_name": "last",
+    "ref_py": "def last(arr,x,n):\r\n    low = 0\r\n    high = n - 1\r\n    res = -1  \r\n    while (low <= high):\r\n        mid = (low + high) // 2 \r\n        if arr[mid] > x:\r\n            high = mid - 1\r\n        elif arr[mid] < x:\r\n            low = mid + 1\r\n        else:\r\n            res = mid\r\n            low = mid + 1\r\n    return res",
+    "starter_py": "def last(arr, x, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2163,
+        "input": {
+          "arr": [
+            1,
+            2,
+            3
+          ],
+          "x": 1,
+          "n": 3
+        },
+        "output": 0,
+        "is_hidden": false
+      },
+      {
+        "id": 2164,
+        "input": {
+          "arr": [
+            1,
+            1,
+            1,
+            2,
+            3,
+            4
+          ],
+          "x": 1,
+          "n": 6
+        },
+        "output": 2,
+        "is_hidden": true
+      },
+      {
+        "id": 2165,
+        "input": {
+          "arr": [
+            2,
+            3,
+            2,
+            3,
+            6,
+            8,
+            9
+          ],
+          "x": 3,
+          "n": 8
+        },
+        "output": 3,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 731,
+    "slug": "mbpp-794-write-a-function-that-matches-a-string-that-has-an-a-followed-by-anything-end",
+    "title": "Write a function that matches a string that has an 'a' followed by anything, end",
+    "fn_name": "text_starta_endb",
+    "ref_py": "import re\r\ndef text_starta_endb(text):\r\n        patterns = 'a.*?b$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "starter_py": "def text_starta_endb(text):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2166,
+        "input": {
+          "text": "aabbbb"
+        },
+        "output": "Found a match!",
+        "is_hidden": false
+      },
+      {
+        "id": 2167,
+        "input": {
+          "text": "aabAbbbc"
+        },
+        "output": "Not matched!",
+        "is_hidden": true
+      },
+      {
+        "id": 2168,
+        "input": {
+          "text": "accddbbjjj"
+        },
+        "output": "Not matched!",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 732,
+    "slug": "mbpp-795-find-the-n-cheap-price-items-from-a-given-dataset-using-heap-queue-algorithm",
+    "title": "Find the n - cheap price items from a given dataset using heap queue algorithm",
+    "fn_name": "cheap_items",
+    "ref_py": "import heapq\r\ndef cheap_items(items,n):\r\n  cheap_items = heapq.nsmallest(n, items, key=lambda s: s['price'])\r\n  return cheap_items",
+    "starter_py": "def cheap_items(items, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2169,
+        "input": {
+          "items": [
+            {
+              "name": "Item-1",
+              "price": 101.1
+            },
+            {
+              "name": "Item-2",
+              "price": 555.22
+            }
+          ],
+          "n": 1
+        },
+        "output": [
+          {
+            "name": "Item-1",
+            "price": 101.1
+          }
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2170,
+        "input": {
+          "items": [
+            {
+              "name": "Item-1",
+              "price": 101.1
+            },
+            {
+              "name": "Item-2",
+              "price": 555.22
+            }
+          ],
+          "n": 2
+        },
+        "output": [
+          {
+            "name": "Item-1",
+            "price": 101.1
+          },
+          {
+            "name": "Item-2",
+            "price": 555.22
+          }
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2171,
+        "input": {
+          "items": [
+            {
+              "name": "Item-1",
+              "price": 101.1
+            },
+            {
+              "name": "Item-2",
+              "price": 555.22
+            },
+            {
+              "name": "Item-3",
+              "price": 45.09
+            },
+            {
+              "name": "Item-4",
+              "price": 22.75
+            }
+          ],
+          "n": 1
+        },
+        "output": [
+          {
+            "name": "Item-4",
+            "price": 22.75
+          }
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 733,
+    "slug": "mbpp-796-write-function-to-find-the-sum-of-all-items-in-the-given-dictionary",
+    "title": "Write function to find the sum of all items in the given dictionary",
+    "fn_name": "return_sum",
+    "ref_py": "def return_sum(dict):\r\n  sum = 0\r\n  for i in dict.values():\r\n    sum = sum + i\r\n  return sum",
+    "starter_py": "def return_sum(dict):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2172,
+        "input": {
+          "dict": {
+            "a": 100,
+            "b": 200,
+            "c": 300
+          }
+        },
+        "output": 600,
+        "is_hidden": false
+      },
+      {
+        "id": 2173,
+        "input": {
+          "dict": {
+            "a": 25,
+            "b": 18,
+            "c": 45
+          }
+        },
+        "output": 88,
+        "is_hidden": true
+      },
+      {
+        "id": 2174,
+        "input": {
+          "dict": {
+            "a": 36,
+            "b": 39,
+            "c": 49
+          }
+        },
+        "output": 124,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 734,
+    "slug": "mbpp-797-find-the-sum-of-all-odd-natural-numbers-within-the-range-l-and-r",
+    "title": "Find the sum of all odd natural numbers within the range l and r",
+    "fn_name": "sum_in_Range",
+    "ref_py": "def sum_Odd(n): \r\n    terms = (n + 1)//2\r\n    sum1 = terms * terms \r\n    return sum1  \r\ndef sum_in_Range(l,r): \r\n    return sum_Odd(r) - sum_Odd(l - 1)",
+    "starter_py": "def sum_in_Range(l, r):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2175,
+        "input": {
+          "l": 2,
+          "r": 5
+        },
+        "output": 8,
+        "is_hidden": false
+      },
+      {
+        "id": 2176,
+        "input": {
+          "l": 5,
+          "r": 7
+        },
+        "output": 12,
+        "is_hidden": true
+      },
+      {
+        "id": 2177,
+        "input": {
+          "l": 7,
+          "r": 13
+        },
+        "output": 40,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 735,
+    "slug": "mbpp-798-find-the-sum-of-an-array",
+    "title": "Find the sum of an array",
+    "fn_name": "_sum",
+    "ref_py": "def _sum(arr):  \r\n    sum=0\r\n    for i in arr: \r\n        sum = sum + i      \r\n    return(sum)",
+    "starter_py": "def _sum(arr):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2178,
+        "input": {
+          "arr": [
+            1,
+            2,
+            3
+          ]
+        },
+        "output": 6,
+        "is_hidden": false
+      },
+      {
+        "id": 2179,
+        "input": {
+          "arr": [
+            15,
+            12,
+            13,
+            10
+          ]
+        },
+        "output": 50,
+        "is_hidden": true
+      },
+      {
+        "id": 2180,
+        "input": {
+          "arr": [
+            0,
+            1,
+            2
+          ]
+        },
+        "output": 3,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 736,
+    "slug": "mbpp-799-left-rotate-the-bits-of-a-given-number",
+    "title": "Left rotate the bits of a given number",
+    "fn_name": "left_Rotate",
+    "ref_py": "INT_BITS = 32\r\ndef left_Rotate(n,d):   \r\n    return (n << d)|(n >> (INT_BITS - d))",
+    "starter_py": "def left_Rotate(n, d):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2181,
+        "input": {
+          "n": 16,
+          "d": 2
+        },
+        "output": 64,
+        "is_hidden": false
+      },
+      {
+        "id": 2182,
+        "input": {
+          "n": 10,
+          "d": 2
+        },
+        "output": 40,
+        "is_hidden": true
+      },
+      {
+        "id": 2183,
+        "input": {
+          "n": 99,
+          "d": 3
+        },
+        "output": 792,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 737,
+    "slug": "mbpp-800-remove-all-whitespaces-from-a-string",
+    "title": "Remove all whitespaces from a string",
+    "fn_name": "remove_all_spaces",
+    "ref_py": "import re\r\ndef remove_all_spaces(text):\r\n return (re.sub(r'\\s+', '',text))",
+    "starter_py": "def remove_all_spaces(text):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2184,
+        "input": {
+          "text": "python  program"
+        },
+        "output": "pythonprogram",
+        "is_hidden": false
+      },
+      {
+        "id": 2185,
+        "input": {
+          "text": "python   programming    language"
+        },
+        "output": "pythonprogramminglanguage",
+        "is_hidden": true
+      },
+      {
+        "id": 2186,
+        "input": {
+          "text": "python                     program"
+        },
+        "output": "pythonprogram",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 738,
+    "slug": "mbpp-801-count-the-number-of-equal-numbers-from-three-given-integers",
+    "title": "Count the number of equal numbers from three given integers",
+    "fn_name": "test_three_equal",
+    "ref_py": "def test_three_equal(x,y,z):\r\n  result= set([x,y,z])\r\n  if len(result)==3:\r\n    return 0\r\n  else:\r\n    return (4-len(result))",
+    "starter_py": "def test_three_equal(x, y, z):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2187,
+        "input": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "output": 3,
+        "is_hidden": false
+      },
+      {
+        "id": 2188,
+        "input": {
+          "x": -1,
+          "y": -2,
+          "z": -3
+        },
+        "output": 0,
+        "is_hidden": true
+      },
+      {
+        "id": 2189,
+        "input": {
+          "x": 1,
+          "y": 2,
+          "z": 2
+        },
+        "output": 2,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 739,
+    "slug": "mbpp-802-count-the-number-of-rotations-required-to-generate-a-sorted-array",
+    "title": "Count the number of rotations required to generate a sorted array",
+    "fn_name": "count_Rotation",
+    "ref_py": "def count_Rotation(arr,n):   \r\n    for i in range (1,n): \r\n        if (arr[i] < arr[i - 1]): \r\n            return i  \r\n    return 0",
+    "starter_py": "def count_Rotation(arr, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2190,
+        "input": {
+          "arr": [
+            3,
+            2,
+            1
+          ],
+          "n": 3
+        },
+        "output": 1,
+        "is_hidden": false
+      },
+      {
+        "id": 2191,
+        "input": {
+          "arr": [
+            4,
+            5,
+            1,
+            2,
+            3
+          ],
+          "n": 5
+        },
+        "output": 2,
+        "is_hidden": true
+      },
+      {
+        "id": 2192,
+        "input": {
+          "arr": [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          "n": 6
+        },
+        "output": 3,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 740,
+    "slug": "mbpp-803-check-whether-the-given-number-is-a-perfect-square-or-not",
+    "title": "Check whether the given number is a perfect square or not",
+    "fn_name": "is_Perfect_Square",
+    "ref_py": "def is_Perfect_Square(n) :\r\n    i = 1\r\n    while (i * i<= n):\r\n        if ((n % i == 0) and (n / i == i)):\r\n            return True     \r\n        i = i + 1\r\n    return False",
+    "starter_py": "def is_Perfect_Square(n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2193,
+        "input": {
+          "n": 10
+        },
+        "output": false,
+        "is_hidden": false
+      },
+      {
+        "id": 2194,
+        "input": {
+          "n": 36
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2195,
+        "input": {
+          "n": 14
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 741,
+    "slug": "mbpp-804-check-whether-the-product-of-numbers-is-even-or-not",
+    "title": "Check whether the product of numbers is even or not",
+    "fn_name": "is_Product_Even",
+    "ref_py": "def is_Product_Even(arr,n): \r\n    for i in range(0,n): \r\n        if ((arr[i] & 1) == 0): \r\n            return True\r\n    return False",
+    "starter_py": "def is_Product_Even(arr, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2196,
+        "input": {
+          "arr": [
+            1,
+            2,
+            3
+          ],
+          "n": 3
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2197,
+        "input": {
+          "arr": [
+            1,
+            2,
+            1,
+            4
+          ],
+          "n": 4
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2198,
+        "input": {
+          "arr": [
+            1,
+            1
+          ],
+          "n": 2
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 742,
+    "slug": "mbpp-805-find-the-list-in-a-list-of-lists-whose-sum-of-elements-is-the-highest",
+    "title": "Find the list in a list of lists whose sum of elements is the highest",
+    "fn_name": "max_sum_list",
+    "ref_py": "def max_sum_list(lists):\r\n return max(lists, key=sum)",
+    "starter_py": "def max_sum_list(lists):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2199,
+        "input": {
+          "lists": [
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              10,
+              11,
+              12
+            ],
+            [
+              7,
+              8,
+              9
+            ]
+          ]
+        },
+        "output": [
+          10,
+          11,
+          12
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2200,
+        "input": {
+          "lists": [
+            [
+              3,
+              2,
+              1
+            ],
+            [
+              6,
+              5,
+              4
+            ],
+            [
+              12,
+              11,
+              10
+            ]
+          ]
+        },
+        "output": [
+          12,
+          11,
+          10
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2201,
+        "input": {
+          "lists": [
+            [
+              2,
+              3,
+              1
+            ]
+          ]
+        },
+        "output": [
+          2,
+          3,
+          1
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 743,
+    "slug": "mbpp-806-find-maximum-run-of-uppercase-characters-in-the-given-string",
+    "title": "Find maximum run of uppercase characters in the given string",
+    "fn_name": "max_run_uppercase",
+    "ref_py": "def max_run_uppercase(test_str):\r\n  cnt = 0\r\n  res = 0\r\n  for idx in range(0, len(test_str)):\r\n    if test_str[idx].isupper():\r\n      cnt += 1\r\n    else:\r\n      res = cnt\r\n      cnt = 0\r\n  if test_str[len(test_str) - 1].isupper():\r\n    res = cnt\r\n  return (res)",
+    "starter_py": "def max_run_uppercase(test_str):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2202,
+        "input": {
+          "test_str": "GeMKSForGERksISBESt"
+        },
+        "output": 5,
+        "is_hidden": false
+      },
+      {
+        "id": 2203,
+        "input": {
+          "test_str": "PrECIOusMOVemENTSYT"
+        },
+        "output": 6,
+        "is_hidden": true
+      },
+      {
+        "id": 2204,
+        "input": {
+          "test_str": "GooGLEFluTTER"
+        },
+        "output": 4,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 744,
+    "slug": "mbpp-807-find-the-first-odd-number-in-a-given-list-of-numbers",
+    "title": "Find the first odd number in a given list of numbers",
+    "fn_name": "first_odd",
+    "ref_py": "def first_odd(nums):\r\n  first_odd = next((el for el in nums if el%2!=0),-1)\r\n  return first_odd",
+    "starter_py": "def first_odd(nums):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2205,
+        "input": {
+          "nums": [
+            1,
+            3,
+            5
+          ]
+        },
+        "output": 1,
+        "is_hidden": false
+      },
+      {
+        "id": 2206,
+        "input": {
+          "nums": [
+            2,
+            4,
+            1,
+            3
+          ]
+        },
+        "output": 1,
+        "is_hidden": true
+      },
+      {
+        "id": 2207,
+        "input": {
+          "nums": [
+            8,
+            9,
+            1
+          ]
+        },
+        "output": 9,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 745,
+    "slug": "mbpp-808-check-if-the-given-tuples-contain-the-k-or-not",
+    "title": "Check if the given tuples contain the k or not",
+    "fn_name": "check_K",
+    "ref_py": "def check_K(test_tup, K):\r\n  res = False\r\n  for ele in test_tup:\r\n    if ele == K:\r\n      res = True\r\n      break\r\n  return (res)",
+    "starter_py": "def check_K(test_tup, K):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2208,
+        "input": {
+          "test_tup": [
+            10,
+            4,
+            5,
+            6,
+            8
+          ],
+          "K": 6
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2209,
+        "input": {
+          "test_tup": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "K": 7
+        },
+        "output": false,
+        "is_hidden": true
+      },
+      {
+        "id": 2210,
+        "input": {
+          "test_tup": [
+            7,
+            8,
+            9,
+            44,
+            11,
+            12
+          ],
+          "K": 11
+        },
+        "output": true,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 746,
+    "slug": "mbpp-809-check-if-each-element-of-second-tuple-is-smaller-than-its-corresponding-index-in",
+    "title": "Check if each element of second tuple is smaller than its corresponding index in",
+    "fn_name": "check_smaller",
+    "ref_py": "def check_smaller(test_tup1, test_tup2):\r\n  res = all(x > y for x, y in zip(test_tup1, test_tup2))\r\n  return (res)",
+    "starter_py": "def check_smaller(test_tup1, test_tup2):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2211,
+        "input": {
+          "test_tup1": [
+            1,
+            2,
+            3
+          ],
+          "test_tup2": [
+            2,
+            3,
+            4
+          ]
+        },
+        "output": false,
+        "is_hidden": false
+      },
+      {
+        "id": 2212,
+        "input": {
+          "test_tup1": [
+            4,
+            5,
+            6
+          ],
+          "test_tup2": [
+            3,
+            4,
+            5
+          ]
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2213,
+        "input": {
+          "test_tup1": [
+            11,
+            12,
+            13
+          ],
+          "test_tup2": [
+            10,
+            11,
+            12
+          ]
+        },
+        "output": true,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 747,
+    "slug": "mbpp-810-iterate-over-elements-repeating-each-as-many-times-as-its-count",
+    "title": "Iterate over elements repeating each as many times as its count",
+    "fn_name": "count_variable",
+    "ref_py": "from collections import Counter\r\ndef count_variable(a,b,c,d):\r\n  c = Counter(p=a, q=b, r=c, s=d)\r\n  return list(c.elements())",
+    "starter_py": "def count_variable(a, b, c, d):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2214,
+        "input": {
+          "a": 4,
+          "b": 2,
+          "c": 0,
+          "d": -2
+        },
+        "output": [
+          "p",
+          "p",
+          "p",
+          "p",
+          "q",
+          "q"
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2215,
+        "input": {
+          "a": 0,
+          "b": 1,
+          "c": 2,
+          "d": 3
+        },
+        "output": [
+          "q",
+          "r",
+          "r",
+          "s",
+          "s",
+          "s"
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2216,
+        "input": {
+          "a": 11,
+          "b": 15,
+          "c": 12,
+          "d": 23
+        },
+        "output": [
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "p",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "q",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "r",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s",
+          "s"
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 748,
+    "slug": "mbpp-811-check-if-two-lists-of-tuples-are-identical-or-not",
+    "title": "Check if two lists of tuples are identical or not",
+    "fn_name": "check_identical",
+    "ref_py": "def check_identical(test_list1, test_list2):\r\n  res = test_list1 == test_list2\r\n  return (res)",
+    "starter_py": "def check_identical(test_list1, test_list2):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2217,
+        "input": {
+          "test_list1": [
+            [
+              10,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "test_list2": [
+            [
+              10,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ]
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2218,
+        "input": {
+          "test_list1": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "test_list2": [
+            [
+              12,
+              14
+            ],
+            [
+              12,
+              45
+            ]
+          ]
+        },
+        "output": false,
+        "is_hidden": true
+      },
+      {
+        "id": 2219,
+        "input": {
+          "test_list1": [
+            [
+              2,
+              14
+            ],
+            [
+              12,
+              25
+            ]
+          ],
+          "test_list2": [
+            [
+              2,
+              14
+            ],
+            [
+              12,
+              25
+            ]
+          ]
+        },
+        "output": true,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 749,
+    "slug": "mbpp-812-abbreviate-road-as-rd-in-a-given-string",
+    "title": "Abbreviate 'road' as 'rd.' in a given string",
+    "fn_name": "road_rd",
+    "ref_py": "import re\r\ndef road_rd(street):\r\n  return (re.sub('Road$', 'Rd.', street))",
+    "starter_py": "def road_rd(street):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2220,
+        "input": {
+          "street": "ravipadu Road"
+        },
+        "output": "ravipadu Rd.",
+        "is_hidden": false
+      },
+      {
+        "id": 2221,
+        "input": {
+          "street": "palnadu Road"
+        },
+        "output": "palnadu Rd.",
+        "is_hidden": true
+      },
+      {
+        "id": 2222,
+        "input": {
+          "street": "eshwar enclave Road"
+        },
+        "output": "eshwar enclave Rd.",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 750,
+    "slug": "mbpp-813-find-length-of-the-string",
+    "title": "Find length of the string",
+    "fn_name": "string_length",
+    "ref_py": "def string_length(str1):\r\n    count = 0\r\n    for char in str1:\r\n        count += 1\r\n    return count",
+    "starter_py": "def string_length(str1):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2223,
+        "input": {
+          "str1": "python"
+        },
+        "output": 6,
+        "is_hidden": false
+      },
+      {
+        "id": 2224,
+        "input": {
+          "str1": "program"
+        },
+        "output": 7,
+        "is_hidden": true
+      },
+      {
+        "id": 2225,
+        "input": {
+          "str1": "language"
+        },
+        "output": 8,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 751,
+    "slug": "mbpp-814-find-the-area-of-a-rombus",
+    "title": "Find the area of a rombus",
+    "fn_name": "rombus_area",
+    "ref_py": "def rombus_area(p,q):\r\n  area=(p*q)/2\r\n  return area",
+    "starter_py": "def rombus_area(p, q):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2226,
+        "input": {
+          "p": 10,
+          "q": 20
+        },
+        "output": 100,
+        "is_hidden": false
+      },
+      {
+        "id": 2227,
+        "input": {
+          "p": 10,
+          "q": 5
+        },
+        "output": 25,
+        "is_hidden": true
+      },
+      {
+        "id": 2228,
+        "input": {
+          "p": 4,
+          "q": 2
+        },
+        "output": 4,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 752,
+    "slug": "mbpp-815-sort-the-given-array-without-using-any-sorting-algorithm-the-given-array-consis",
+    "title": "Sort the given array without using any sorting algorithm. the given array consis",
+    "fn_name": "sort_by_dnf",
+    "ref_py": "def sort_by_dnf(arr, n):\r\n  low=0\r\n  mid=0\r\n  high=n-1\r\n  while mid <= high:\r\n    if arr[mid] == 0:\r\n      arr[low], arr[mid] = arr[mid], arr[low]\r\n      low = low + 1\r\n      mid = mid + 1\r\n    elif arr[mid] == 1:\r\n      mid = mid + 1\r\n    else:\r\n      arr[mid], arr[high] = arr[high], arr[mid]\r\n      high = high - 1\r\n  return arr",
+    "starter_py": "def sort_by_dnf(arr, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2229,
+        "input": {
+          "arr": [
+            1,
+            2,
+            0,
+            1,
+            0,
+            1,
+            2,
+            1,
+            1
+          ],
+          "n": 9
+        },
+        "output": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2230,
+        "input": {
+          "arr": [
+            1,
+            0,
+            0,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            0
+          ],
+          "n": 10
+        },
+        "output": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2231,
+        "input": {
+          "arr": [
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            1
+          ],
+          "n": 10
+        },
+        "output": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 753,
+    "slug": "mbpp-817-find-numbers-divisible-by-m-or-n-from-a-list-of-numbers-using-lambda-function",
+    "title": "Find numbers divisible by m or n from a list of numbers using lambda function",
+    "fn_name": "div_of_nums",
+    "ref_py": "def div_of_nums(nums,m,n):\r\n result = list(filter(lambda x: (x % m == 0 or x % n == 0), nums)) \r\n return result",
+    "starter_py": "def div_of_nums(nums, m, n):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2232,
+        "input": {
+          "nums": [
+            19,
+            65,
+            57,
+            39,
+            152,
+            639,
+            121,
+            44,
+            90,
+            190
+          ],
+          "m": 19,
+          "n": 13
+        },
+        "output": [
+          19,
+          65,
+          57,
+          39,
+          152,
+          190
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2233,
+        "input": {
+          "nums": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            10
+          ],
+          "m": 2,
+          "n": 5
+        },
+        "output": [
+          2,
+          5,
+          8,
+          10
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2234,
+        "input": {
+          "nums": [
+            10,
+            15,
+            14,
+            13,
+            18,
+            12,
+            20
+          ],
+          "m": 10,
+          "n": 5
+        },
+        "output": [
+          10,
+          15,
+          20
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 754,
+    "slug": "mbpp-818-count-lower-case-letters-in-a-given-string",
+    "title": "Count lower case letters in a given string",
+    "fn_name": "lower_ctr",
+    "ref_py": "def lower_ctr(str):\r\n      lower_ctr= 0\r\n      for i in range(len(str)):\r\n          if str[i] >= 'a' and str[i] <= 'z': lower_ctr += 1     \r\n      return  lower_ctr",
+    "starter_py": "def lower_ctr(str):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2235,
+        "input": {
+          "str": "abc"
+        },
+        "output": 3,
+        "is_hidden": false
+      },
+      {
+        "id": 2236,
+        "input": {
+          "str": "string"
+        },
+        "output": 6,
+        "is_hidden": true
+      },
+      {
+        "id": 2237,
+        "input": {
+          "str": "Python"
+        },
+        "output": 5,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 755,
+    "slug": "mbpp-820-check-whether-the-given-month-number-contains-28-days-or-not",
+    "title": "Check whether the given month number contains 28 days or not",
+    "fn_name": "check_monthnum_number",
+    "ref_py": "def check_monthnum_number(monthnum1):\r\n  if monthnum1 == 2:\r\n    return True\r\n  else:\r\n    return False",
+    "starter_py": "def check_monthnum_number(monthnum1):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2238,
+        "input": {
+          "monthnum1": 2
+        },
+        "output": true,
+        "is_hidden": false
+      },
+      {
+        "id": 2239,
+        "input": {
+          "monthnum1": 1
+        },
+        "output": false,
+        "is_hidden": true
+      },
+      {
+        "id": 2240,
+        "input": {
+          "monthnum1": 3
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 756,
+    "slug": "mbpp-821-merge-two-dictionaries-into-a-single-expression",
+    "title": "Merge two dictionaries into a single expression",
+    "fn_name": "merge_dictionaries",
+    "ref_py": "import collections as ct\r\ndef merge_dictionaries(dict1,dict2):\r\n    merged_dict = dict(ct.ChainMap({}, dict1, dict2))\r\n    return merged_dict",
+    "starter_py": "def merge_dictionaries(dict1, dict2):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2241,
+        "input": {
+          "dict1": {
+            "R": "Red",
+            "B": "Black",
+            "P": "Pink"
+          },
+          "dict2": {
+            "G": "Green",
+            "W": "White"
+          }
+        },
+        "output": {
+          "B": "Black",
+          "R": "Red",
+          "P": "Pink",
+          "G": "Green",
+          "W": "White"
+        },
+        "is_hidden": false
+      },
+      {
+        "id": 2242,
+        "input": {
+          "dict1": {
+            "R": "Red",
+            "B": "Black",
+            "P": "Pink"
+          },
+          "dict2": {
+            "O": "Orange",
+            "W": "White",
+            "B": "Black"
+          }
+        },
+        "output": {
+          "O": "Orange",
+          "P": "Pink",
+          "B": "Black",
+          "W": "White",
+          "R": "Red"
+        },
+        "is_hidden": true
+      },
+      {
+        "id": 2243,
+        "input": {
+          "dict1": {
+            "G": "Green",
+            "W": "White"
+          },
+          "dict2": {
+            "O": "Orange",
+            "W": "White",
+            "B": "Black"
+          }
+        },
+        "output": {
+          "W": "White",
+          "O": "Orange",
+          "G": "Green",
+          "B": "Black"
+        },
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 757,
+    "slug": "mbpp-822-return-true-if-the-password-is-valid",
+    "title": "Return true if the password is valid",
+    "fn_name": "pass_validity",
+    "ref_py": "import re\r\ndef pass_validity(p):\r\n x = True\r\n while x:  \r\n    if (len(p)<6 or len(p)>12):\r\n        break\r\n    elif not re.search(\"[a-z]\",p):\r\n        break\r\n    elif not re.search(\"[0-9]\",p):\r\n        break\r\n    elif not re.search(\"[A-Z]\",p):\r\n        break\r\n    elif not re.search(\"[$#@]\",p):\r\n        break\r\n    elif re.search(\"\\s\",p):\r\n        break\r\n    else:\r\n        return True\r\n        x=False\r\n        break\r\n\r\n if x:\r\n    return False",
+    "starter_py": "def pass_validity(p):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2244,
+        "input": {
+          "p": "password"
+        },
+        "output": false,
+        "is_hidden": false
+      },
+      {
+        "id": 2245,
+        "input": {
+          "p": "Password@10"
+        },
+        "output": true,
+        "is_hidden": true
+      },
+      {
+        "id": 2246,
+        "input": {
+          "p": "password@10"
+        },
+        "output": false,
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 758,
+    "slug": "mbpp-823-check-if-the-given-string-starts-with-a-substring-using-regex",
+    "title": "Check if the given string starts with a substring using regex",
+    "fn_name": "check_substring",
+    "ref_py": "import re \r\ndef check_substring(string, sample) : \r\n  if (sample in string): \r\n      y = \"\\A\" + sample \r\n      x = re.search(y, string) \r\n      if x : \r\n          return (\"string starts with the given substring\") \r\n      else : \r\n          return (\"string doesnt start with the given substring\") \r\n  else : \r\n      return (\"entered string isnt a substring\")",
+    "starter_py": "def check_substring(string, sample):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2247,
+        "input": {
+          "string": "dreams for dreams makes life fun",
+          "sample": "makes"
+        },
+        "output": "string doesnt start with the given substring",
+        "is_hidden": false
+      },
+      {
+        "id": 2248,
+        "input": {
+          "string": "Hi there how are you Hi alex",
+          "sample": "Hi"
+        },
+        "output": "string starts with the given substring",
+        "is_hidden": true
+      },
+      {
+        "id": 2249,
+        "input": {
+          "string": "Its been a long day",
+          "sample": "been"
+        },
+        "output": "string doesnt start with the given substring",
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 759,
+    "slug": "mbpp-824-remove-even-numbers-from-a-given-list",
+    "title": "Remove even numbers from a given list",
+    "fn_name": "remove_even",
+    "ref_py": "def remove_even(l):\r\n    for i in l:\r\n        if i % 2 == 0:\r\n            l.remove(i)\r\n    return l",
+    "starter_py": "def remove_even(l):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2250,
+        "input": {
+          "l": [
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        "output": [
+          1,
+          3,
+          5
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2251,
+        "input": {
+          "l": [
+            5,
+            6,
+            7
+          ]
+        },
+        "output": [
+          5,
+          7
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2252,
+        "input": {
+          "l": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "output": [
+          1,
+          3
+        ],
+        "is_hidden": true
+      }
+    ]
+  },
+  {
+    "id": 760,
+    "slug": "mbpp-825-access-multiple-elements-of-specified-index-from-a-given-list",
+    "title": "Access multiple elements of specified index from a given list",
+    "fn_name": "access_elements",
+    "ref_py": "def access_elements(nums, list_index):\r\n    result = [nums[i] for i in list_index]\r\n    return result",
+    "starter_py": "def access_elements(nums, list_index):\n    # Write your solution here\n    pass\n",
+    "test_cases": [
+      {
+        "id": 2253,
+        "input": {
+          "nums": [
+            2,
+            3,
+            8,
+            4,
+            7,
+            9
+          ],
+          "list_index": [
+            0,
+            3,
+            5
+          ]
+        },
+        "output": [
+          2,
+          4,
+          9
+        ],
+        "is_hidden": false
+      },
+      {
+        "id": 2254,
+        "input": {
+          "nums": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "list_index": [
+            1,
+            2
+          ]
+        },
+        "output": [
+          2,
+          3
+        ],
+        "is_hidden": true
+      },
+      {
+        "id": 2255,
+        "input": {
+          "nums": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "list_index": [
+            0,
+            1
+          ]
+        },
+        "output": [
+          1,
+          0
+        ],
+        "is_hidden": true
+      }
+    ]
+  }
+]
