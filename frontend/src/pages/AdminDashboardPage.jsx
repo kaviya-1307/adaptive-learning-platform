@@ -163,9 +163,9 @@ export default function AdminDashboardPage({ onNavigate }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
               <span className="badge badge-purple" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: 600 }}>
-                <ShieldCheck size={14} color="#a855f7" /> Faculty &amp; Administrative Monitoring
+                <ShieldCheck size={14} color="#a855f7" /> Admin Dashboard
               </span>
-              <span className="badge badge-blue">Phase 5 Live Dataset</span>
+              <span className="badge badge-blue">Faculty &amp; Administrative Monitoring</span>
             </div>
             <h1 style={{ fontSize: '1.75rem', fontWeight: 800, margin: '0 0 0.35rem', color: '#ffffff' }}>
               Live Student Dataset &amp; Performance Monitoring

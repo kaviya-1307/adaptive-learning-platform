@@ -1,18 +1,27 @@
 import React from 'react';
-import { Terminal, LogOut, User, Sparkles, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Terminal, LogOut, User, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar({ currentView, onNavigate }) {
   const { user, isAuthenticated, logout } = useAuth();
+  const isAdmin = user?.role === 'ADMIN';
   const isDiagnosticDone = Boolean(
-    user?.diagnostic_completed || user?.diagnostic_exempt || user?.role === 'ADMIN'
+    user?.diagnostic_completed || user?.diagnostic_exempt
   );
 
   return (
     <nav className="navbar">
       <div
         className="nav-brand"
-        onClick={() => onNavigate(isAuthenticated ? (isDiagnosticDone ? 'dashboard' : 'diagnostic') : 'login')}
+        onClick={() => {
+          if (!isAuthenticated) {
+            onNavigate('login');
+          } else if (isAdmin) {
+            onNavigate('admin');
+          } else {
+            onNavigate(isDiagnosticDone ? 'dashboard' : 'diagnostic');
+          }
+        }}
         style={{ cursor: 'pointer' }}
       >
         <div className="brand-icon">
@@ -27,76 +36,78 @@ export default function Navbar({ currentView, onNavigate }) {
       <div className="nav-links">
         {isAuthenticated && (
           <>
-            {isDiagnosticDone ? (
+            {isAdmin ? (
+              <button
+                type="button"
+                className={`nav-item ${currentView === 'admin' ? 'active' : ''}`}
+                onClick={() => onNavigate('admin')}
+                style={{ color: '#c084fc', fontWeight: 600 }}
+                title="Admin Dashboard"
+              >
+                <ShieldCheck size={14} style={{ marginRight: '0.35rem', verticalAlign: 'text-bottom' }} />
+                Admin Dashboard
+              </button>
+            ) : (
               <>
-                <button
-                  type="button"
-                  className={`nav-item ${currentView === 'dashboard' ? 'active' : ''}`}
-                  onClick={() => onNavigate('dashboard')}
-                >
-                  Dashboard
-                </button>
+                {isDiagnosticDone ? (
+                  <>
+                    <button
+                      type="button"
+                      className={`nav-item ${currentView === 'dashboard' ? 'active' : ''}`}
+                      onClick={() => onNavigate('dashboard')}
+                    >
+                      Dashboard
+                    </button>
 
-                <button
-                  type="button"
-                  className={`nav-item ${currentView === 'roadmap' ? 'active' : ''}`}
-                  onClick={() => onNavigate('roadmap')}
-                >
-                  Roadmap
-                </button>
+                    <button
+                      type="button"
+                      className={`nav-item ${currentView === 'roadmap' ? 'active' : ''}`}
+                      onClick={() => onNavigate('roadmap')}
+                    >
+                      Roadmap
+                    </button>
 
-                <button
-                  type="button"
-                  className={`nav-item ${currentView === 'problems' || currentView === 'workspace' ? 'active' : ''}`}
-                  onClick={() => onNavigate('problems')}
-                >
-                  Problems
-                </button>
+                    <button
+                      type="button"
+                      className={`nav-item ${currentView === 'problems' || currentView === 'workspace' ? 'active' : ''}`}
+                      onClick={() => onNavigate('problems')}
+                    >
+                      Problems
+                    </button>
 
-                {user?.diagnostic_completed && (
+                    {user?.diagnostic_completed && (
+                      <button
+                        type="button"
+                        className={`nav-item ${currentView === 'diagnostic' ? 'active' : ''}`}
+                        onClick={() => onNavigate('diagnostic')}
+                        title="View Diagnostic Results & Score"
+                      >
+                        <CheckCircle2 size={14} style={{ marginRight: '0.35rem', verticalAlign: 'text-bottom', color: '#10b981' }} />
+                        Diagnostic Result
+                      </button>
+                    )}
+                  </>
+                ) : (
                   <button
                     type="button"
                     className={`nav-item ${currentView === 'diagnostic' ? 'active' : ''}`}
                     onClick={() => onNavigate('diagnostic')}
-                    title="View Diagnostic Results & Score"
+                    style={{ fontWeight: 600, color: 'var(--accent-primary)' }}
                   >
-                    <CheckCircle2 size={14} style={{ marginRight: '0.35rem', verticalAlign: 'text-bottom', color: '#10b981' }} />
-                    Diagnostic Result
+                    Diagnostic Assessment
                   </button>
                 )}
 
-                {user?.role === 'ADMIN' && (
+                {!user?.onboarding_completed && (
                   <button
                     type="button"
-                    className={`nav-item ${currentView === 'admin' ? 'active' : ''}`}
-                    onClick={() => onNavigate('admin')}
-                    style={{ color: '#c084fc', fontWeight: 600 }}
-                    title="Faculty & Admin Live Dataset Monitoring"
+                    className={`nav-item ${currentView === 'onboarding' ? 'active' : ''}`}
+                    onClick={() => onNavigate('onboarding')}
                   >
-                    <ShieldCheck size={14} style={{ marginRight: '0.35rem', verticalAlign: 'text-bottom' }} />
-                    Admin Monitoring
+                    <span>Onboarding</span>
                   </button>
                 )}
               </>
-            ) : (
-              <button
-                type="button"
-                className={`nav-item ${currentView === 'diagnostic' ? 'active' : ''}`}
-                onClick={() => onNavigate('diagnostic')}
-                style={{ fontWeight: 600, color: 'var(--accent-primary)' }}
-              >
-                Diagnostic Assessment
-              </button>
-            )}
-
-            {!user?.onboarding_completed && (
-              <button
-                type="button"
-                className={`nav-item ${currentView === 'onboarding' ? 'active' : ''}`}
-                onClick={() => onNavigate('onboarding')}
-              >
-                <span>Onboarding</span>
-              </button>
             )}
           </>
         )}
@@ -109,10 +120,10 @@ export default function Navbar({ currentView, onNavigate }) {
                 <User size={14} />
               </div>
               <div className="user-info-text">
-                <span className="user-name">{user?.name || 'Learner'}</span>
+                <span className="user-name">{user?.name || (isAdmin ? 'Administrator' : 'Learner')}</span>
                 <span className="user-role">
-                  {user?.role === 'ADMIN' ? 'ADMINISTRATOR' : (user?.experience_level ? `${user.experience_level.toUpperCase()} TIER` : (user?.role || 'STUDENT'))}
-                  {user?.diagnostic_completed && (
+                  {isAdmin ? 'ADMINISTRATOR' : (user?.experience_level ? `${user.experience_level.toUpperCase()} TIER` : (user?.role || 'STUDENT'))}
+                  {!isAdmin && user?.diagnostic_completed && (
                     <span style={{ marginLeft: '0.4rem', color: '#10b981', fontSize: '0.72rem' }}>
                       (Score: {user.diagnostic_score ?? 0}/{user.diagnostic_total ?? 7})
                     </span>

@@ -404,7 +404,7 @@ def get_admin_student_detail(
             problem_id=r.problem_id,
             problem_title=rec_prob_map.get(r.problem_id).title if rec_prob_map.get(r.problem_id) else f"Problem #{r.problem_id}",
             difficulty=rec_prob_map.get(r.problem_id).difficulty if rec_prob_map.get(r.problem_id) else "Medium",
-            topic_name=rec_prob_map.get(r.problem_id).topic_name if rec_prob_map.get(r.problem_id) else "General",
+            topic_name=t_name_map.get(rec_prob_map.get(r.problem_id).topic_id, "General") if rec_prob_map.get(r.problem_id) else "General",
             recommendation_reason=getattr(r, "recommendation_reason", None) or getattr(r, "primary_weak_concept", None),
             created_at=r.created_at
         )

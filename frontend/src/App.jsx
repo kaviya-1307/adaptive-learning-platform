@@ -19,7 +19,7 @@ function AppContent() {
   const [initialCheckDone, setInitialCheckDone] = useState(false);
   const { user, isAuthenticated, loading } = useAuth();
 
-  // Helper to determine the target route based on learner completion status
+  // Helper to determine the target route based on user role and completion status
   const determineUserRoute = (userData) => {
     if (!userData) return 'login';
     if (userData.role === 'ADMIN') {
@@ -29,7 +29,7 @@ function AppContent() {
       return 'onboarding';
     }
     const isDiagnosticDone = Boolean(
-      userData.diagnostic_completed || userData.diagnostic_exempt || userData.role === 'ADMIN'
+      userData.diagnostic_completed || userData.diagnostic_exempt
     );
     if (!isDiagnosticDone) {
       return 'diagnostic';
@@ -37,89 +37,143 @@ function AppContent() {
     return 'dashboard';
   };
 
-  // Sync route on session initialization
+  // Helper to extract requested route from URL (hash, query param, or pathname)
+  const getViewFromUrl = () => {
+    try {
+      const hash = window.location.hash.replace(/^#\/?/, '').trim();
+      if (hash) return hash;
+      const params = new URLSearchParams(window.location.search);
+      const viewParam = params.get('view');
+      if (viewParam) return viewParam;
+      const path = window.location.pathname.replace(/^\//, '').trim();
+      if (path && ['dashboard', 'roadmap', 'problems', 'workspace', 'diagnostic', 'onboarding', 'admin', 'login', 'register', 'overview'].includes(path)) {
+        return path;
+      }
+    } catch {
+      // In non-browser environments
+    }
+    return null;
+  };
+
+  // Helper to sync current view into window URL hash
+  const syncUrl = (view) => {
+    try {
+      if (window.location.hash !== `#${view}`) {
+        window.history.replaceState(null, '', `#${view}`);
+      }
+    } catch {
+      // In non-browser environments
+    }
+  };
+
+  // Route Protection & RBAC Enforcement Gate
+  const guardView = (targetView, currentUser, authenticated) => {
+    const studentViews = ['dashboard', 'roadmap', 'problems', 'workspace', 'diagnostic', 'onboarding'];
+    const adminViews = ['admin'];
+    const protectedViews = [...studentViews, ...adminViews];
+
+    if (!authenticated) {
+      if (protectedViews.includes(targetView)) {
+        return 'login';
+      }
+      return targetView || 'login';
+    }
+
+    // ADMIN USERS: Restricted strictly to 'admin'
+    if (currentUser?.role === 'ADMIN') {
+      if (studentViews.includes(targetView) || targetView !== 'admin') {
+        return 'admin';
+      }
+      return 'admin';
+    }
+
+    // STUDENT USERS: Restricted from 'admin'
+    if (adminViews.includes(targetView)) {
+      return determineUserRoute(currentUser);
+    }
+
+    // Student Onboarding & Diagnostic Progression Gating
+    if (!currentUser?.onboarding_completed && targetView !== 'onboarding') {
+      return 'onboarding';
+    }
+    const isDiagnosticDone = Boolean(
+      currentUser?.diagnostic_completed || currentUser?.diagnostic_exempt
+    );
+    if (!isDiagnosticDone && targetView !== 'diagnostic' && targetView !== 'onboarding') {
+      return 'diagnostic';
+    }
+
+    return targetView;
+  };
+
+  // Sync route on session initialization & auth changes
   useEffect(() => {
     if (!loading) {
+      const urlView = getViewFromUrl();
       if (isAuthenticated && user) {
-        const targetRoute = determineUserRoute(user);
-        setCurrentView((prev) => {
-          if (prev === 'login' || prev === 'register' || prev === 'overview') {
-            return targetRoute;
-          }
-          // Enforce gating if uncompleted student tries to view guarded screens
-          const isDiagnosticDone = Boolean(
-            user.diagnostic_completed || user.diagnostic_exempt || user.role === 'ADMIN'
-          );
-          if (!user.onboarding_completed && prev !== 'onboarding') {
-            return 'onboarding';
-          }
-          if (!isDiagnosticDone && prev !== 'diagnostic' && prev !== 'onboarding') {
-            return 'diagnostic';
-          }
-          return prev;
-        });
-        setInitialCheckDone(true);
+        const initialTarget = urlView ? guardView(urlView, user, true) : determineUserRoute(user);
+        setCurrentView(initialTarget);
+        syncUrl(initialTarget);
       } else {
-        setCurrentView((prev) => (prev === 'register' ? 'register' : 'login'));
-        setInitialCheckDone(true);
+        const initialTarget = (urlView === 'register' || urlView === 'overview') ? urlView : 'login';
+        setCurrentView(initialTarget);
+        syncUrl(initialTarget);
       }
+      setInitialCheckDone(true);
     }
   }, [loading, isAuthenticated, user]);
 
+  // Listen to direct URL changes (e.g. hash changes or back/forward buttons)
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const urlView = getViewFromUrl();
+      if (urlView) {
+        const guarded = guardView(urlView, user, isAuthenticated);
+        setCurrentView(guarded);
+        syncUrl(guarded);
+      }
+    };
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, [user, isAuthenticated]);
+
   const handleNavigate = (view) => {
-    const protectedViews = ['dashboard', 'roadmap', 'problems', 'workspace', 'diagnostic', 'onboarding', 'admin'];
-    if (!isAuthenticated && protectedViews.includes(view)) {
-      setCurrentView('login');
-      return;
-    }
-
-    if (view === 'admin') {
-      if (!isAuthenticated) {
-        setCurrentView('login');
-        return;
-      }
-      if (user?.role !== 'ADMIN') {
-        setCurrentView('dashboard');
-        return;
-      }
-    }
-
-    if (isAuthenticated && user) {
-      if (!user.onboarding_completed && view !== 'onboarding') {
-        setCurrentView('onboarding');
-        return;
-      }
-      const isDiagnosticDone = Boolean(
-        user.diagnostic_completed || user.diagnostic_exempt || user.role === 'ADMIN'
-      );
-      if (!isDiagnosticDone && view !== 'diagnostic' && view !== 'onboarding') {
-        setCurrentView('diagnostic');
-        return;
-      }
-    }
-
-    setCurrentView(view);
+    const guarded = guardView(view, user, isAuthenticated);
+    setCurrentView(guarded);
+    syncUrl(guarded);
   };
 
   const handleSelectProblem = (slug) => {
     if (!isAuthenticated) {
-      setCurrentView('login');
+      handleNavigate('login');
+      return;
+    }
+    if (user?.role === 'ADMIN') {
+      handleNavigate('admin');
       return;
     }
     setActiveProblemSlug(slug);
     setCurrentView('workspace');
+    syncUrl('workspace');
   };
 
   const handleAuthSuccess = (authUser) => {
     const targetRoute = determineUserRoute(authUser);
     setCurrentView(targetRoute);
+    syncUrl(targetRoute);
   };
 
   const handleOnboardingComplete = () => {
     const isDiagnosticDone = Boolean(
-      user?.diagnostic_completed || user?.diagnostic_exempt || user?.role === 'ADMIN'
+      user?.diagnostic_completed || user?.diagnostic_exempt
     );
-    setCurrentView(isDiagnosticDone ? 'dashboard' : 'diagnostic');
+    const target = isDiagnosticDone ? 'dashboard' : 'diagnostic';
+    setCurrentView(target);
+    syncUrl(target);
   };
 
   // Show loading spinner while determining auth state
@@ -151,45 +205,46 @@ function AppContent() {
           />
         )}
 
-        {/* Authenticated Flow Views */}
-        {isAuthenticated && currentView === 'onboarding' && (
+        {/* Authenticated Flow Views - STUDENT ONLY */}
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'onboarding' && (
           <OnboardingPage onComplete={handleOnboardingComplete} />
         )}
 
-        {isAuthenticated && currentView === 'diagnostic' && (
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'diagnostic' && (
           <DiagnosticPage
             onSelectProblem={handleSelectProblem}
             onNavigate={handleNavigate}
           />
         )}
 
-        {isAuthenticated && currentView === 'dashboard' && (
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'dashboard' && (
           <DashboardPage
             onSelectProblem={handleSelectProblem}
             onNavigate={handleNavigate}
           />
         )}
 
-        {isAuthenticated && currentView === 'roadmap' && (
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'roadmap' && (
           <RoadmapPage
             onSelectProblem={handleSelectProblem}
             onNavigate={handleNavigate}
           />
         )}
 
-        {isAuthenticated && currentView === 'problems' && (
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'problems' && (
           <ProblemListPage onSelectProblem={handleSelectProblem} />
         )}
 
-        {isAuthenticated && currentView === 'workspace' && (
+        {isAuthenticated && user?.role !== 'ADMIN' && currentView === 'workspace' && (
           <CodingWorkspacePage
             problemSlug={activeProblemSlug}
-            onBack={() => setCurrentView('problems')}
-            onNavigateToAuth={(mode) => setCurrentView(mode)}
+            onBack={() => handleNavigate('problems')}
+            onNavigateToAuth={(mode) => handleNavigate(mode)}
             onSelectProblem={handleSelectProblem}
           />
         )}
 
+        {/* Authenticated Flow Views - ADMIN ONLY */}
         {isAuthenticated && user?.role === 'ADMIN' && currentView === 'admin' && (
           <AdminDashboardPage onNavigate={handleNavigate} />
         )}
